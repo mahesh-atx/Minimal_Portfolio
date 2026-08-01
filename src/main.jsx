@@ -507,6 +507,7 @@ function App() {
             variants={staggerContainer}
             className="flex flex-col items-start gap-[30px] w-[420px] max-w-full"
           >
+            <h1 className="sr-only">Mahesh Dongare — Data Science, AI & ML Portfolio</h1>
             <motion.img
               variants={fadeSlideUp}
               whileHover={{ scale: 1.08, rotate: 3 }}
@@ -843,6 +844,8 @@ function App() {
                         <img
                           src={dark && (tech.name === 'GitHub' || tech.name === 'Pandas') ? `${tech.icon}/white` : tech.icon}
                           alt={tech.name}
+                          loading="lazy"
+                          decoding="async"
                           className="w-[30px] h-[30px] rounded-lg object-cover transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6"
                         />
                         <span className="text-[17px] font-medium text-black group-hover:underline underline-offset-4 decoration-1 transition-all duration-300">{tech.name}</span>
