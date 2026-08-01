@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mahesh-atx.vercel.app/sitemap.xml
