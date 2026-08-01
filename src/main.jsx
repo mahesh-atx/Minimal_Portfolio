@@ -302,7 +302,7 @@ function LaptopMockup({ title }) {
   );
 }
 
-function AnimatedWords({ text, className }) {
+function AnimatedWords({ text, className, gradient = false }) {
   const words = text.split(' ');
   return (
     <motion.span variants={wordContainer} className={className}>
@@ -321,12 +321,24 @@ function AnimatedWords({ text, className }) {
           return null;
         }
         return (
-          <motion.span key={i} variants={wordReveal} className="inline-block mr-[0.28em]">
+          <motion.span key={i} variants={wordReveal} className={`inline-block mr-[0.28em] ${gradient ? 'animated-gradient' : ''}`}>
             {word}
           </motion.span>
         );
       })}
     </motion.span>
+  );
+}
+
+function ColoredBio({ text }) {
+  return (
+    <span>
+      {text.split(' ').map((word, i) => (
+        <span key={i} className={(i * 7 + 3) % 5 === 0 ? 'text-[#7c3aed] dark:text-[#a78bfa]' : ''}>
+          {word}{' '}
+        </span>
+      ))}
+    </span>
   );
 }
 
@@ -430,6 +442,28 @@ function App() {
           .cursor-follower { display: none !important; }
         }
 
+        @keyframes gradientShift {
+          0% { background-position: 0% 50%; }
+          100% { background-position: 200% 50%; }
+        }
+        .animated-gradient {
+          background: linear-gradient(90deg, #111111 0%, #6b7280 50%, #111111 100%);
+          background-size: 200% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+          animation: gradientShift 6s linear infinite;
+        }
+        .dark .animated-gradient {
+          background: linear-gradient(90deg, #ffffff 0%, #9ca3af 50%, #ffffff 100%);
+          background-size: 200% 100%;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+        }
+
         .dark .cursor-dot { background-color: #e8e8e8; }
         .dark .cursor-ring { border-color: rgba(232, 232, 232, 0.45); }
 
@@ -479,12 +513,13 @@ function App() {
               transition={{ type: 'spring', stiffness: 300, damping: 15 }}
               src={avatarImg}
               alt="Mahesh Dongare portrait"
-              className="w-[60px] h-[60px] rounded-[15px] object-cover border-2 border-white shadow-avatar"
+              className="w-[100px] h-[100px] rounded-[20px] object-cover border-2 border-white shadow-avatar"
             />
-            <motion.div variants={fadeSlideUp} className="flex flex-col gap-[10px] w-full">
+              <motion.div variants={fadeSlideUp} className="flex flex-col gap-[4px] w-full">
               <AnimatedWords
                 text="Hey, I'm Mahesh Dongare."
-                className="text-[25px] max-[809px]:text-[22px] font-medium leading-[1.5] text-black block"
+                gradient
+                className="text-[25px] max-[809px]:text-[22px] font-medium leading-[1.5] block"
               />
               <AnimatedWords
                 text="I'm a Data Science, AI & ML Enthusiast."
@@ -631,7 +666,7 @@ function App() {
                   <motion.div variants={fadeSlideUp} className="flex flex-col gap-[20px]">
                     <h2 className="text-[20px] font-medium leading-[1.4] text-black">My Story</h2>
                     <p className="text-[15px] font-normal leading-[1.6] text-black opacity-50">
-                      {ABOUT.bio}
+                      <ColoredBio text={ABOUT.bio} />
                     </p>
                   </motion.div>
                   <div className="flex flex-col gap-[30px]">
@@ -806,7 +841,7 @@ function App() {
                       className="group relative flex items-center justify-center gap-2 bg-white rounded-[10px] shadow-card border border-transparent hover:border-[#c4c4c4] h-[130px] transition-colors duration-300"
                     >
                         <img
-                          src={tech.icon}
+                          src={dark && (tech.name === 'GitHub' || tech.name === 'Pandas') ? `${tech.icon}/white` : tech.icon}
                           alt={tech.name}
                           className="w-[30px] h-[30px] rounded-lg object-cover transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6"
                         />
