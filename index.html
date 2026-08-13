@@ -8,13 +8,14 @@
     <meta name="keywords" content="Mahesh Dongare, Data Science, Machine Learning, Deep Learning, AI, ML, Portfolio, Python, TensorFlow, PyTorch" />
     <meta name="author" content="Mahesh Dongare" />
     <meta name="robots" content="index, follow" />
-    <meta name="theme-color" content="#111111" />
+    <meta name="theme-color" content="#f9f9f9" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#111111" media="(prefers-color-scheme: dark)" />
     <link rel="canonical" href="https://mahesh-atx.vercel.app/" />
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/favicon.png" />
-    <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700&family=Inter:wght@400&display=swap" rel="stylesheet" />
     <link rel="preconnect" href="https://cdn.simpleicons.org" crossorigin />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="Mahesh Dongare — Data Science, AI & ML Portfolio" />
@@ -22,12 +23,15 @@
     <meta property="og:url" content="https://mahesh-atx.vercel.app/" />
     <meta property="og:image" content="https://mahesh-atx.vercel.app/og-image.jpg" />
     <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Mahesh Dongare — Data Science, AI & ML enthusiast" />
     <meta property="og:site_name" content="Mahesh Dongare Portfolio" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Mahesh Dongare — Data Science, AI & ML Portfolio" />
     <meta name="twitter:description" content="Data Science, AI & ML enthusiast building intelligent systems." />
     <meta name="twitter:image" content="https://mahesh-atx.vercel.app/og-image.jpg" />
+    <meta name="twitter:image:alt" content="Mahesh Dongare — Data Science, AI & ML enthusiast" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -44,11 +48,14 @@
         ]
       }
     </script>
-    <script src="https://cdn.tailwindcss.com"></script>
     <script>
-      tailwind.config = {
-        darkMode: 'class'
-      };
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.classList.toggle('dark', savedTheme ? savedTheme === 'dark' : prefersDark);
+      } catch {
+        // Local storage can be unavailable in privacy-restricted contexts.
+      }
     </script>
   </head>
   <body>

@@ -14,7 +14,7 @@ Personal portfolio for Mahesh Dongare — Data Science, AI & ML enthusiast.
 
 - React 18 + Vite
 - Framer Motion
-- Tailwind CSS (CDN)
+- Tailwind CSS 3
 - lucide-react icons
 
 ## Getting Started
