@@ -17,11 +17,6 @@ export const ABOUT = {
   bio: "I'm a Data Science enthusiast with a passion for turning raw data into meaningful insights and intelligent systems. Over the years, I've explored machine learning, deep learning, and AI-driven applications, finding my sweet spot exactly where data meets intelligent decision-making.",
   location: 'Maharashtra, India',
   focus: ['Python', 'Machine Learning', 'Deep Learning', 'Data Viz', 'LLMs', 'Automation'],
-  stats: [
-    { value: 'B.Tech', label: 'Computer Science' },
-    { value: '6+', label: 'Projects shipped' },
-    { value: '2', label: 'Internships' },
-  ],
   education: [
     {
       id: 1,

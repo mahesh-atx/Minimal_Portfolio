@@ -30,15 +30,6 @@ export default function About() {
         </div>
       </motion.div>
 
-      <motion.div variants={fadeSlideUp} className="grid grid-cols-3 max-[809px]:grid-cols-1 gap-3">
-        {ABOUT.stats.map((s) => (
-          <div key={s.label} className="rounded-[14px] bg-white shadow-card border border-black/[0.04] dark:border-white/10 p-4 flex flex-col gap-1">
-            <span className="text-[22px] font-semibold text-black">{s.value}</span>
-            <span className="text-[12px] text-subtle">{s.label}</span>
-          </div>
-        ))}
-      </motion.div>
-
       <div className="flex flex-col gap-[20px]">
         <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-wider font-bold text-subtle">
           Education
