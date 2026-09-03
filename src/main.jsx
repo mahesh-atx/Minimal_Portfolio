@@ -431,13 +431,13 @@ function App() {
           </motion.header>
 
           {/* Tabs */}
-          <motion.div
+          <motion.nav
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
             role="tablist"
             aria-label="Portfolio sections"
-            className="-mt-[45px] max-[809px]:-mt-[30px] flex items-center gap-[7px] max-[809px]:flex-wrap max-[809px]:justify-center max-[809px]:gap-[3px] w-full"
+            className="-mt-[45px] max-[809px]:-mt-[30px] flex items-center gap-[4px] max-[809px]:flex-wrap max-[809px]:justify-center max-[809px]:gap-[3px] w-full p-[5px] rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
           >
             {TABS.map((tab) => (
               <button
@@ -451,8 +451,8 @@ function App() {
                 onClick={() => setActiveTab(tab)}
                 onKeyDown={handleTabKeyDown}
                 className={`
-                  relative px-3 max-[809px]:px-[10px] py-[3px] max-[809px]:py-[2px] rounded-full
-                  text-[14px] max-[809px]:text-[13px] font-normal transition-colors duration-300 whitespace-nowrap
+                  relative flex-1 max-[809px]:flex-none px-3 max-[809px]:px-[12px] py-[7px] max-[809px]:py-[6px] rounded-full
+                  text-[14px] max-[809px]:text-[13px] font-medium transition-colors duration-300 text-center whitespace-nowrap
                   ${activeTab === tab ? 'text-white dark:!text-black' : 'text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10'}
                 `}
               >
@@ -473,7 +473,7 @@ function App() {
                 </span>
               </button>
             ))}
-          </motion.div>
+          </motion.nav>
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">
