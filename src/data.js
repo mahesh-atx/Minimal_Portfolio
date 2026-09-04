@@ -1,8 +1,4 @@
 import {
-  BarChart3,
-  BrainCircuit,
-  Bot,
-  Compass,
   Instagram,
   Github,
   Linkedin,
@@ -11,7 +7,7 @@ import {
 
 // --- Data Models ---
 
-export const TABS = ['Ventures', 'About', 'Experience', 'Services', 'Tech Stack', 'Connect'];
+export const TABS = ['Ventures', 'About', 'Experience', 'Tech Stack', 'Connect'];
 
 export const ABOUT = {
   bio: "I'm a Data Science enthusiast with a passion for turning raw data into meaningful insights and intelligent systems. Over the years, I've explored machine learning, deep learning, and AI-driven applications, finding my sweet spot exactly where data meets intelligent decision-making.",
@@ -89,13 +85,6 @@ export const VENTURES = [
     year: '2024',
     tech: ['Apps Script', 'Google Sheets', 'Calendar API']
   }
-];
-
-export const SERVICES = [
-  { id: '01', title: 'Data Analysis & Visualization', description: 'Turn raw data into clear, actionable dashboards and stories.', icon: BarChart3 },
-  { id: '02', title: 'Machine Learning Model Development', description: 'Build, train and deploy predictive models end to end.', icon: BrainCircuit },
-  { id: '03', title: 'AI & LLM Integration', description: 'Chatbots, RAG and automation powered by large language models.', icon: Bot },
-  { id: '04', title: 'End-to-End Data Science Consulting', description: 'Strategy, pipelines and insights tailored to your goals.', icon: Compass },
 ];
 
 export const TECH_STACK = [

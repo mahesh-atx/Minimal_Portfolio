@@ -4,14 +4,15 @@ import { getTabId } from '../utils';
 
 export default function Nav({ activeTab, setActiveTab, onKeyDown }) {
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-      role="tablist"
-      aria-label="Portfolio sections"
-      className="-mt-[45px] max-[809px]:-mt-[30px] flex items-center gap-[4px] max-[809px]:flex-wrap max-[809px]:justify-center max-[809px]:gap-[3px] w-full p-[5px] rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
-    >
+    <div className="fixed top-0 left-0 right-0 z-[55] flex justify-center px-[20px] pt-[20px] max-[809px]:pt-[15px] pointer-events-none">
+      <motion.nav
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        role="tablist"
+        aria-label="Portfolio sections"
+        className="pointer-events-auto w-[700px] max-[809px]:w-full flex items-center gap-[4px] max-[809px]:flex-wrap max-[809px]:justify-center max-[809px]:gap-[3px] p-[5px] rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
+      >
       {TABS.map((tab) => (
         <button
           key={tab}
@@ -46,6 +47,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown }) {
           </span>
         </button>
       ))}
-    </motion.nav>
+      </motion.nav>
+    </div>
   );
 }

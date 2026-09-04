@@ -4,7 +4,7 @@ Personal portfolio for Mahesh Dongare — Data Science, AI & ML enthusiast.
 
 ## Features
 
-- Ventures, About, Experience, Services, Tech Stack, Connect sections
+- Ventures, About, Experience, Tech Stack, Connect sections
 - Dark mode toggle
 - Framer Motion animations
 - Custom cursor, magnetic hover effects
