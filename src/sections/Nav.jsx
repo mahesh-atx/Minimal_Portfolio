@@ -21,7 +21,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
           whileTap={{ scale: 0.94 }}
           transition={{ type: 'spring', stiffness: 400, damping: 15 }}
           aria-label="Back to Ventures"
-          className="order-1 shrink-0 px-[10px] py-[7px] text-[16px] font-bold leading-none tracking-[-0.01em] text-black dark:!text-white"
+          className="order-1 shrink-0 h-[35px] px-[10px] flex items-center text-[16px] font-bold leading-none tracking-[-0.01em] text-black dark:!text-white"
         >
           Md.
         </motion.button>
@@ -42,7 +42,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
               onClick={() => setActiveTab(tab)}
               onKeyDown={onKeyDown}
               className={`
-                relative flex-1 max-[809px]:flex-none px-3 max-[809px]:px-[12px] py-[7px] max-[809px]:py-[6px] rounded-full
+                relative flex-1 max-[809px]:flex-none h-[35px] flex items-center justify-center px-3 max-[809px]:px-[12px] rounded-full
                 text-[14px] max-[809px]:text-[13px] font-medium transition-colors duration-300 text-center whitespace-nowrap
                 ${activeTab === tab ? 'text-white dark:!text-black' : 'text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10'}
               `}
@@ -77,7 +77,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
           transition={{ type: 'spring', stiffness: 400, damping: 15 }}
           aria-label={`Switch to ${dark ? 'light' : 'dark'} mode`}
           aria-pressed={dark}
-          className="order-5 max-[809px]:order-2 shrink-0 w-[34px] h-[34px] rounded-full flex items-center justify-center text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          className="order-5 max-[809px]:order-2 shrink-0 w-[35px] h-[35px] rounded-full flex items-center justify-center text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
         >
           {dark ? <Sun className="w-[15px] h-[15px]" /> : <Moon className="w-[15px] h-[15px]" />}
         </motion.button>
