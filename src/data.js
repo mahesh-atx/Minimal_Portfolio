@@ -67,17 +67,19 @@ export const EXPERIENCE = [
 export const VENTURES = [
   {
     id: 1,
-    title: 'Akola CopConnect — WhatsApp ChatBot',
-    description: 'WhatsApp chatbot for faster cyber incident reporting.',
+    title: 'Akola CopConnect',
+    description: 'WhatsApp chatbot built on Node.js & Express — webhook handling and automated responses for faster cyber incident reporting.',
     link: 'https://github.com/mahesh-atx',
-    cta: 'View GitHub profile'
+    cta: 'View GitHub profile',
+    year: '2025'
   },
   {
     id: 2,
-    title: 'SP-e Samvaad — Appointment Booking Portal',
-    description: 'Police appointment booking portal with automated Meet invites.',
+    title: 'SP-e Samvaad',
+    description: 'Appointment booking portal for Akola Police — automated Google Meet invites, Sheets sync and an admin dashboard.',
     link: 'https://akolapoliceevisit-code.github.io/SP-e-Sanvad/',
-    cta: 'Visit site'
+    cta: 'Visit site',
+    year: '2024'
   }
 ];
 

@@ -30,17 +30,20 @@ export default function Ventures() {
             />
           </div>
           <div className="flex-1 min-w-0 flex flex-col justify-center gap-[7px]">
-            <h3 className="text-[17px] max-[809px]:text-[16px] font-medium leading-[1.3] text-black">
-              {venture.title}
-            </h3>
-            <p className="text-[14px] leading-[1.55] text-muted line-clamp-2">
+            <div className="flex items-start justify-between gap-[10px]">
+              <h3 className="text-[17px] max-[809px]:text-[16px] font-medium leading-[1.3] text-black">
+                {venture.title}
+              </h3>
+              <span className="shrink-0 pt-[2px] text-[13px] font-medium text-subtle">{venture.year}</span>
+            </div>
+            <p className="text-[14px] leading-[1.55] text-muted line-clamp-2 max-[809px]:line-clamp-3">
               {venture.description}
             </p>
             <div className="mt-[4px]">
-              <span className="inline-flex items-center gap-[5px] w-fit px-3 py-[5px] rounded-full border border-black dark:border-white/30 text-[13px] font-medium text-black dark:!text-white group-hover:bg-black group-hover:text-white dark:group-hover:!bg-white dark:group-hover:!text-black transition-colors">
+              <span className="inline-flex items-center gap-[4px] w-fit px-2.5 py-[3px] rounded-full border border-black dark:border-white/30 text-[12px] font-medium text-black dark:!text-white group-hover:bg-black group-hover:text-white dark:group-hover:!bg-white dark:group-hover:!text-black transition-colors">
                 {venture.cta}
                 <span className="transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[-2px]">
-                  <ArrowIcon className="w-3 h-[13px]" />
+                  <ArrowIcon className="w-[10px] h-[11px]" />
                 </span>
               </span>
             </div>
