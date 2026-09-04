@@ -87,9 +87,9 @@ function App() {
       <div className={`${dark ? 'bg-[#111111]' : 'bg-[#f9f9f9]'} min-h-screen text-black dark:text-[#e8e8e8] font-custom selection:bg-gray-200 dark:selection:bg-gray-600 transition-colors duration-300`}>
         <main className="flex justify-center px-0">
         <div className="w-[700px] max-[809px]:w-[90%] pt-[170px] pb-[100px] max-[809px]:pt-[140px] max-[809px]:pb-[100px] flex flex-col gap-[80px] max-[809px]:gap-[60px]">
-          <Nav activeTab={activeTab} setActiveTab={setActiveTab} onKeyDown={handleTabKeyDown} />
+          <Nav activeTab={activeTab} setActiveTab={setActiveTab} onKeyDown={handleTabKeyDown} dark={dark} setDark={setDark} />
 
-          <Hero dark={dark} setDark={setDark} handleCopyEmail={handleCopyEmail} />
+          <Hero handleCopyEmail={handleCopyEmail} />
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">

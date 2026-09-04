@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { Sun, Moon } from 'lucide-react';
 import avatarImg from '../avatar.webp';
 import { SOCIALS } from '../data';
 import { fadeSlideUp, staggerContainer } from '../animations';
@@ -9,7 +8,7 @@ import Magnetic from '../components/Magnetic';
 
 const ROTATING = ['intelligent systems.', 'machine learning models.', 'data-driven products.', 'LLM-powered tools.'];
 
-export default function Hero({ dark, setDark, handleCopyEmail }) {
+export default function Hero({ handleCopyEmail }) {
   const [wordIdx, setWordIdx] = useState(0);
 
   useEffect(() => {
@@ -126,20 +125,6 @@ export default function Hero({ dark, setDark, handleCopyEmail }) {
             </Magnetic>
           );
         })}
-        <Magnetic strength={0.4} className="inline-block">
-          <motion.button
-            onClick={() => setDark(!dark)}
-            variants={fadeSlideUp}
-            whileHover={{ y: -3, scale: 1.18, rotate: 20 }}
-            whileTap={{ scale: 0.88 }}
-            transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-            aria-label={`Switch to ${dark ? 'light' : 'dark'} mode`}
-            aria-pressed={dark}
-            className="block text-black dark:!text-white hover:opacity-70 transition-opacity"
-          >
-            {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-          </motion.button>
-        </Magnetic>
       </motion.div>
     </motion.header>
   );
