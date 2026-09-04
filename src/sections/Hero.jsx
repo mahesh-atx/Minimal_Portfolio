@@ -17,15 +17,13 @@ export default function Hero({ dark, setDark, handleCopyEmail }) {
     return () => clearInterval(t);
   }, []);
 
-  // Cursor parallax — intro and avatar drift on opposite vectors for depth
+  // Cursor parallax — intro drifts gently for depth (avatar stays put)
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
   const sx = useSpring(mx, { stiffness: 60, damping: 18 });
   const sy = useSpring(my, { stiffness: 60, damping: 18 });
   const introX = useTransform(sx, [-1, 1], [-6, 6]);
   const introY = useTransform(sy, [-1, 1], [-4, 4]);
-  const avatarX = useTransform(sx, [-1, 1], [9, -9]);
-  const avatarY = useTransform(sy, [-1, 1], [7, -7]);
 
   const handlePointerMove = (event) => {
     if (!window.matchMedia('(pointer: fine)').matches) return;
@@ -50,43 +48,35 @@ export default function Hero({ dark, setDark, handleCopyEmail }) {
     >
       <h1 className="sr-only">Mahesh Dongare — Data Science, AI & ML Portfolio</h1>
 
-      {/* Avatar — parallax + idle float + hover pop */}
-      <motion.div style={{ x: avatarX, y: avatarY }}>
-        <motion.div variants={fadeSlideUp}>
-          <motion.div
-            animate={{ y: [0, -6, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <motion.img
-              whileHover={{ scale: 1.08, rotate: 3 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 15 }}
-              src={avatarImg}
-              alt="Mahesh Dongare portrait"
-              width="100"
-              height="100"
-              fetchPriority="high"
-              className="w-[100px] h-[100px] rounded-[20px] object-cover border-2 border-white shadow-avatar"
-            />
-          </motion.div>
-        </motion.div>
-      </motion.div>
+      {/* Avatar — static, original hover pop only */}
+      <motion.img
+        variants={fadeSlideUp}
+        whileHover={{ scale: 1.08, rotate: 3 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 15 }}
+        src={avatarImg}
+        alt="Mahesh Dongare portrait"
+        width="100"
+        height="100"
+        fetchPriority="high"
+        className="w-[100px] h-[100px] rounded-[20px] object-cover border-2 border-white shadow-avatar"
+      />
 
       {/* Intro — parallax wrapper around the staggered text block */}
       <motion.div style={{ x: introX, y: introY }} className="w-full">
-        <motion.div variants={fadeSlideUp} className="flex flex-col gap-[8px] w-full">
-          <h2 className="text-[30px] max-[809px]:text-[25px] font-medium leading-[1.3] text-black">
+        <motion.div variants={fadeSlideUp} className="flex flex-col gap-[10px] w-full">
+          <h2 className="text-[30px] max-[809px]:text-[26px] font-medium leading-[1.35] tracking-[-0.02em] text-black">
             <AnimatedWords text="Hey, I'm" className="inline" />{' '}
             <AnimatedWords
               text="Mahesh Dongare."
               gradient
-              className="font-serif-accent inline text-[1.1em] font-normal"
+              className="font-serif-accent inline font-normal"
             />
           </h2>
           <AnimatedWords
             text="I'm a Data Science, AI & ML Enthusiast."
-            className="text-[18px] max-[809px]:text-[16px] font-medium leading-[1.45] text-black/60 block"
+            className="text-[17px] max-[809px]:text-[15.5px] font-medium leading-[1.55] text-black/60 block"
           />
-          <p className="text-[18px] max-[809px]:text-[16px] font-medium leading-[1.45] text-black/60">
+          <p className="text-[17px] max-[809px]:text-[15.5px] font-medium leading-[1.55] text-black/60">
             <AnimatedWords text="I spend most of my time building" className="inline" />{' '}
             <AnimatePresence mode="wait">
               <motion.span
@@ -95,7 +85,7 @@ export default function Hero({ dark, setDark, handleCopyEmail }) {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -10, filter: 'blur(6px)' }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className="font-serif-accent inline-block text-[1.05em] text-black/80 dark:text-white/85"
+                className="font-serif-accent inline-block text-black/80 dark:text-white/85"
               >
                 {ROTATING[wordIdx]}
               </motion.span>
