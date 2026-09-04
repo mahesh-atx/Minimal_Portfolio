@@ -26,26 +26,31 @@ export default function Hero({ dark, setDark, handleCopyEmail }) {
         fetchPriority="high"
         className="w-[100px] h-[100px] rounded-[20px] object-cover border-2 border-white shadow-avatar"
       />
-      <motion.div variants={fadeSlideUp} className="flex flex-col gap-[4px] w-full">
-        <AnimatedWords
-          text="Hey, I'm Mahesh Dongare."
-          gradient
-          className="text-[25px] max-[809px]:text-[22px] font-medium leading-[1.5] block"
-        />
+      <motion.div variants={fadeSlideUp} className="flex flex-col gap-[8px] w-full">
+        <h2 className="text-[30px] max-[809px]:text-[25px] font-medium leading-[1.3] text-black">
+          <AnimatedWords text="Hey, I'm" className="inline" />{' '}
+          <AnimatedWords
+            text="Mahesh Dongare."
+            gradient
+            className="font-serif-accent inline text-[1.1em] font-normal"
+          />
+        </h2>
         <AnimatedWords
           text="I'm a Data Science, AI & ML Enthusiast."
-          className="text-[20px] max-[809px]:text-[17px] font-medium leading-[1.35] text-black/60 block"
+          className="text-[18px] max-[809px]:text-[16px] font-medium leading-[1.45] text-black/60 block"
         />
         <AnimatedWords
           text="I spend most of my time building intelligent systems."
-          className="text-[20px] max-[809px]:text-[17px] font-medium leading-[1.35] text-black/60 block"
+          className="text-[18px] max-[809px]:text-[16px] font-medium leading-[1.45] text-black/60 block"
         />
-        <motion.div variants={fadeSlideUp} className="inline-flex items-center gap-[8px] mt-[2px]">
-          <span className="relative flex h-[7px] w-[7px]">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-            <span className="relative inline-flex h-[7px] w-[7px] rounded-full bg-emerald-500" />
+        <motion.div variants={fadeSlideUp} className="mt-[10px]">
+          <span className="inline-flex items-center gap-[8px] px-[12px] py-[6px] rounded-full border border-black/10 dark:border-white/15 bg-white dark:!bg-white/[0.06] shadow-card">
+            <span className="relative flex h-[7px] w-[7px]">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
+              <span className="relative inline-flex h-[7px] w-[7px] rounded-full bg-emerald-500" />
+            </span>
+            <span className="text-[12.5px] font-medium text-black/60 dark:text-[#b8b8b8]">Available for new opportunities</span>
           </span>
-          <span className="text-[13px] font-medium text-black/55 dark:text-[#b8b8b8]">Available for new opportunities</span>
         </motion.div>
       </motion.div>
       <motion.div variants={fadeSlideUp} className="flex items-center gap-[15px] mt-[10px] text-black">
