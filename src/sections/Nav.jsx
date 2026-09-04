@@ -11,7 +11,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         aria-label="Portfolio sections"
-        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-wrap items-center gap-x-[6px] gap-y-[6px] p-[5px] rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
+        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-wrap items-center justify-between gap-x-[6px] gap-y-[6px] p-[5px] rounded-full max-[809px]:rounded-[26px] bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
       >
         {/* Logo — inside the strip, left */}
         <motion.button
