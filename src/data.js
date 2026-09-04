@@ -10,9 +10,10 @@ import {
 export const TABS = ['Ventures', 'About', 'Experience', 'Tech Stack', 'Connect'];
 
 export const ABOUT = {
-  bio: "I'm a Data Science enthusiast with a passion for turning raw data into meaningful insights and intelligent systems. Over the years, I've explored machine learning, deep learning, and AI-driven applications, finding my sweet spot exactly where data meets intelligent decision-making.",
+  tagline: 'Data Science undergraduate turning raw data into intelligent, production-ready systems.',
   location: 'Maharashtra, India',
   focus: ['Python', 'Machine Learning', 'Deep Learning', 'Data Viz', 'LLMs', 'Automation'],
+  disciplines: ['Data Science', 'Machine Learning', 'Artificial Intelligence', 'Automation'],
   education: [
     {
       id: 1,

@@ -1,37 +1,56 @@
 import { motion } from 'framer-motion';
-import { Sparkles, MapPin } from 'lucide-react';
+import { MapPin } from 'lucide-react';
 import { ABOUT } from '../data';
-import { fadeSlideUp } from '../animations';
-import ColoredBio from '../components/ColoredBio';
+import { fadeSlideUp, wordReveal, wordContainer } from '../animations';
+import Marquee from '../components/Marquee';
+
+function RevealText({ text, className }) {
+  return (
+    <motion.span variants={wordContainer} className={className}>
+      {text.split(' ').map((word, i) => (
+        <motion.span key={i} variants={wordReveal} className="inline-block mr-[0.26em]">
+          {word}
+        </motion.span>
+      ))}
+    </motion.span>
+  );
+}
 
 export default function About() {
   return (
-    <div className="flex flex-col gap-[44px]">
-      <motion.div variants={fadeSlideUp} className="flex flex-col gap-[16px]">
-        <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-[#7c3aed] dark:text-[#a78bfa]" />
-          <h3 className="text-[20px] font-medium leading-[1.4] text-black">My Story</h3>
-        </div>
-        <p className="text-[15px] font-normal leading-[1.7] text-muted">
-          <ColoredBio text={ABOUT.bio} />
-        </p>
-        <div className="flex items-center gap-1.5 text-[13px] text-subtle mt-1">
-          <MapPin className="w-3.5 h-3.5" />
-          <span>{ABOUT.location}</span>
-        </div>
+    <div className="flex flex-col gap-[32px]">
+      {/* Header row */}
+      <motion.div variants={fadeSlideUp} className="flex items-center justify-between gap-[12px]">
+        <span className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">Profile</span>
+        <span className="flex items-center gap-[6px] text-[13px] font-medium text-subtle">
+          <MapPin className="w-[14px] h-[14px]" />
+          {ABOUT.location}
+        </span>
       </motion.div>
 
-      <motion.div variants={fadeSlideUp} className="flex flex-col gap-[14px]">
-        <h4 className="text-[12px] uppercase tracking-wider font-bold text-subtle">Focus Areas</h4>
-        <div className="flex flex-wrap gap-2">
-          {ABOUT.focus.map((f) => (
-            <span key={f} className="text-[13px] font-medium px-3 py-1.5 rounded-full bg-black/[0.05] dark:bg-white/10 text-black/75 dark:text-[#cfcfcf]">{f}</span>
+      {/* Professional statement — word-by-word blur reveal */}
+      <RevealText
+        text={ABOUT.tagline}
+        className="block text-[24px] max-[809px]:text-[21px] font-medium leading-[1.45] text-black"
+      />
+
+      {/* Focus areas marquee strip */}
+      <motion.div variants={fadeSlideUp} className="border-y border-[#eeeeee] py-[13px]">
+        <Marquee duration={26} pauseOnHover>
+          {[...ABOUT.focus, ...ABOUT.focus].map((item) => (
+            <span key={item} className="flex items-center">
+              <span className="text-[13px] font-medium uppercase tracking-[0.18em] text-subtle whitespace-nowrap px-[16px]">
+                {item}
+              </span>
+              <span className="text-[11px] text-black/25 dark:text-white/30" aria-hidden="true">✦</span>
+            </span>
           ))}
-        </div>
+        </Marquee>
       </motion.div>
 
-      <div className="flex flex-col gap-[20px]">
-        <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-wider font-bold text-subtle">
+      {/* Education */}
+      <div className="flex flex-col gap-[16px]">
+        <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">
           Education
         </motion.h3>
         <div className="flex flex-col">
@@ -41,21 +60,33 @@ export default function About() {
               whileHover={{ x: 6 }}
               transition={{ type: 'spring', stiffness: 300, damping: 24 }}
               key={edu.id}
-              className="relative py-6 border-b border-[#eeeeee] last:border-0 first:pt-0 flex flex-col md:flex-row gap-2 md:gap-8 group"
+              className="py-[18px] border-b border-[#eeeeee] last:border-0 flex flex-col md:flex-row gap-[4px] md:gap-[28px]"
             >
-              <div className="w-full md:w-32 flex-shrink-0 mt-0.5">
-                <span className="text-[14px] text-subtle font-normal">{edu.duration}</span>
+              <div className="w-full md:w-[150px] shrink-0">
+                <span className="text-[13px] font-medium text-subtle">{edu.duration}</span>
               </div>
-              <div className="flex-1 space-y-2">
-                <h4 className="text-[17px] font-medium text-black">
-                  {edu.degree}
-                </h4>
-                <p className="text-[15px] font-normal leading-[1.6] text-muted">{edu.institution}</p>
+              <div className="flex-1">
+                <h4 className="text-[16px] font-medium leading-[1.4] text-black">{edu.degree}</h4>
+                <p className="text-[14px] mt-[3px] leading-[1.55] text-muted">{edu.institution}</p>
               </div>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Disciplines marquee strip — reversed, outlined display text */}
+      <motion.div variants={fadeSlideUp} className="border-y border-[#eeeeee] py-[16px]">
+        <Marquee reverse duration={38}>
+          {[...ABOUT.disciplines, ...ABOUT.disciplines].map((item, i) => (
+            <span key={i} className="flex items-center">
+              <span className="text-outline text-[32px] max-[809px]:text-[24px] font-semibold uppercase tracking-[-0.02em] whitespace-nowrap px-[20px]">
+                {item}
+              </span>
+              <span className="text-[14px] text-subtle" aria-hidden="true">✦</span>
+            </span>
+          ))}
+        </Marquee>
+      </motion.div>
     </div>
   );
 }
