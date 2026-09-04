@@ -35,6 +35,9 @@ export default function Marquee({ children, baseVelocity = 3, className = '' }) 
   const x = useTransform(baseX, (v) => `${wrap(-25, 0, v)}%`);
   const directionFactor = useRef(1);
 
+  // Subtle skew driven by scroll velocity — the signature awards-site touch.
+  const skewX = useTransform(smoothVelocity, [-1500, 1500], [-3, 3], { clamp: true });
+
   useAnimationFrame((_, delta) => {
     if (prefersReducedMotion.current) return;
 
@@ -50,7 +53,7 @@ export default function Marquee({ children, baseVelocity = 3, className = '' }) 
 
   return (
     <div className={`overflow-hidden ${className}`}>
-      <motion.div className="flex w-max items-center" style={{ x }}>
+      <motion.div className="flex w-max items-center" style={{ x, skewX }}>
         {[0, 1, 2, 3].map((copy) => (
           <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy > 0}>
             {children}

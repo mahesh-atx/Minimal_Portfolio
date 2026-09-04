@@ -10,7 +10,11 @@ import {
 export const TABS = ['Ventures', 'About', 'Experience', 'Tech Stack', 'Connect'];
 
 export const ABOUT = {
-  tagline: 'Data Science undergraduate turning raw data into intelligent, production-ready systems.',
+  tagline: {
+    pre: 'Data Science undergraduate turning raw data into',
+    accent: 'intelligent,',
+    post: 'production-ready systems.',
+  },
   location: 'Maharashtra, India',
   focus: ['Python', 'Machine Learning', 'Deep Learning', 'Data Viz', 'LLMs', 'Automation'],
   education: [
