@@ -68,22 +68,16 @@ export const VENTURES = [
   {
     id: 1,
     title: 'Akola CopConnect — WhatsApp ChatBot',
-    description: 'Node.js & Express.js backend for a WhatsApp chatbot — webhook handling, session states and automated responses for faster cyber incident reporting.',
+    description: 'WhatsApp chatbot for faster cyber incident reporting.',
     link: 'https://github.com/mahesh-atx',
-    cta: 'View GitHub profile',
-    tag: 'Chatbot · Public Safety',
-    year: '2025',
-    tech: ['Node.js', 'Express.js', 'WhatsApp API']
+    cta: 'View GitHub profile'
   },
   {
     id: 2,
     title: 'SP-e Samvaad — Appointment Booking Portal',
-    description: 'Akola Police appointment booking portal built with Google Apps Script, Sheets, Calendar & Meet APIs — automated Meet invites and an admin dashboard.',
+    description: 'Police appointment booking portal with automated Meet invites.',
     link: 'https://akolapoliceevisit-code.github.io/SP-e-Sanvad/',
-    cta: 'Visit site',
-    tag: 'Web App · Automation',
-    year: '2024',
-    tech: ['Apps Script', 'Google Sheets', 'Calendar API']
+    cta: 'Visit site'
   }
 ];
 
