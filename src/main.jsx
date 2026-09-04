@@ -12,7 +12,6 @@ import Nav from './sections/Nav';
 import Ventures from './sections/Ventures';
 import About from './sections/About';
 import Experience from './sections/Experience';
-import Services from './sections/Services';
 import TechStack from './sections/TechStack';
 import Connect from './sections/Connect';
 import Footer from './sections/Footer';
@@ -87,10 +86,10 @@ function App() {
     <MotionConfig reducedMotion="user">
       <div className={`${dark ? 'bg-[#111111]' : 'bg-[#f9f9f9]'} min-h-screen text-black dark:text-[#e8e8e8] font-custom selection:bg-gray-200 dark:selection:bg-gray-600 transition-colors duration-300`}>
         <main className="flex justify-center px-0">
-        <div className="w-[700px] max-[809px]:w-[90%] py-[100px] max-[809px]:py-[80px] max-[809px]:pb-[100px] flex flex-col gap-[80px] max-[809px]:gap-[60px]">
-          <Hero dark={dark} setDark={setDark} handleCopyEmail={handleCopyEmail} />
+        <div className="w-[700px] max-[809px]:w-[90%] pt-[170px] pb-[100px] max-[809px]:pt-[140px] max-[809px]:pb-[100px] flex flex-col gap-[80px] max-[809px]:gap-[60px]">
+          <Nav activeTab={activeTab} setActiveTab={setActiveTab} onKeyDown={handleTabKeyDown} dark={dark} setDark={setDark} />
 
-          <Nav activeTab={activeTab} setActiveTab={setActiveTab} onKeyDown={handleTabKeyDown} />
+          <Hero handleCopyEmail={handleCopyEmail} />
 
           {/* Tab Content */}
           <AnimatePresence mode="wait">
@@ -104,13 +103,12 @@ function App() {
               role="tabpanel"
               aria-labelledby={`tab-${getTabId(activeTab)}`}
               tabIndex={0}
-              className="min-h-[400px] -mt-[45px] max-[809px]:-mt-[30px] focus:outline-none"
+              className="min-h-[400px] focus:outline-none"
             >
               <h2 className="sr-only">{activeTab}</h2>
               {activeTab === 'Ventures' && <Ventures />}
               {activeTab === 'About' && <About />}
               {activeTab === 'Experience' && <Experience />}
-              {activeTab === 'Services' && <Services />}
               {activeTab === 'Tech Stack' && <TechStack dark={dark} />}
               {activeTab === 'Connect' && <Connect dark={dark} handleCopyEmail={handleCopyEmail} />}
             </motion.div>
@@ -120,6 +118,31 @@ function App() {
         </div>
       </main>
 
+      {/* Top blur gradient overlay behind the fixed navbar (8 progressive layers like Framer's BlurGradient) */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.2, delay: 0.8 }}
+        className="fixed top-0 left-0 right-0 h-[110px] pointer-events-none z-[5] overflow-hidden"
+      >
+        {Array.from({ length: 8 }).map((_, i) => {
+          const blurPx = (i + 1) * (8 / 8);
+          const top = `${(i / 8) * 100}%`;
+          const bottom = `${((i + 1) / 8) * 100}%`;
+          return (
+            <div
+              key={i}
+              className="absolute inset-0"
+              style={{
+                backdropFilter: `blur(${blurPx}px)`,
+                WebkitBackdropFilter: `blur(${blurPx}px)`,
+                maskImage: `linear-gradient(to bottom, black ${top}, transparent ${bottom})`,
+                WebkitMaskImage: `linear-gradient(to bottom, black ${top}, transparent ${bottom})`,
+              }}
+            />
+          );
+        })}
+      </motion.div>
       {/* Bottom blur gradient overlay (8 progressive layers like Framer's BlurGradient) */}
       <motion.div
         initial={{ opacity: 0 }}

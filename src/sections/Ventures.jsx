@@ -1,61 +1,54 @@
 import { motion } from 'framer-motion';
 import { VENTURES } from '../data';
 import { fadeSlideUp, cardHover } from '../animations';
-import Magnetic from '../components/Magnetic';
 import ArrowIcon from '../components/ArrowIcon';
+import copconnectImg from '../venture-copconnect.jpg';
+import sanvadImg from '../venture-sanvad.jpg';
+
+const IMAGES = { 1: copconnectImg, 2: sanvadImg };
 
 export default function Ventures() {
   return (
-    <div className="flex flex-col gap-[24px]">
+    <div className="flex flex-col gap-[18px]">
       {VENTURES.map((venture) => (
-        <motion.div
+        <motion.a
           variants={fadeSlideUp}
           whileHover={cardHover}
           key={venture.id}
-          className="group bg-white rounded-[16px] shadow-card border border-black/[0.05] dark:border-white/10 p-[28px] max-[809px]:p-6 transition-colors hover:border-black/10 dark:hover:border-white/20"
+          href={venture.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex h-[150px] max-[809px]:h-[148px] items-stretch gap-[16px] max-[809px]:gap-[12px] bg-white rounded-[16px] shadow-card border border-black/[0.05] dark:border-white/10 p-[12px] transition-colors hover:border-black/10 dark:hover:border-white/20"
         >
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <Magnetic strength={0.35} className="w-fit">
-                <motion.div
-                  whileHover={{ rotate: 8, scale: 1.1 }}
-                  whileTap={{ scale: 0.92 }}
-                  transition={{ type: 'spring', stiffness: 350, damping: 14 }}
-                  className="w-[38px] h-[38px] rounded-[11px] bg-black dark:!bg-white text-white dark:!text-black text-[13px] font-bold shadow-logo flex items-center justify-center"
-                >
-                  {String(venture.id).padStart(2, '0')}
-                </motion.div>
-              </Magnetic>
-              <span className="text-[12px] font-medium uppercase tracking-wide text-subtle">{venture.tag}</span>
+          <div className="w-[30%] shrink-0 rounded-[10px] overflow-hidden bg-black/[0.04] dark:bg-white/10">
+            <img
+              src={IMAGES[venture.id]}
+              alt={`${venture.title} preview`}
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="flex-1 min-w-0 flex flex-col justify-center">
+            <div className="flex items-baseline justify-between gap-[10px]">
+              <h3 className="min-w-0 truncate text-[17px] max-[809px]:text-[16px] font-medium leading-[1.3] text-black">
+                {venture.title}
+              </h3>
+              <span className="shrink-0 text-[13px] font-medium text-subtle">{venture.year}</span>
             </div>
-            <span className="text-[12px] font-medium text-subtle">{venture.year}</span>
-          </div>
-          <h3 className="text-[21px] font-medium leading-[1.35] text-black mt-5">{venture.title}</h3>
-          <p className="text-[15px] font-normal leading-[1.6] text-muted mt-2">
-            {venture.description}
-          </p>
-          <div className="flex flex-wrap gap-2 mt-4">
-            {venture.tech.map((t) => (
-              <span key={t} className="text-[12px] font-medium px-2.5 py-1 rounded-full bg-black/[0.05] dark:bg-white/10 text-black/70 dark:text-[#cfcfcf]">{t}</span>
-            ))}
-          </div>
-          <Magnetic strength={0.3} className="w-fit mt-5">
-            <motion.a
-              href={venture.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: 'spring', stiffness: 400, damping: 18 }}
-              className="group/btn inline-flex items-center gap-[5px] px-3.5 py-1.5 rounded-full border border-black text-[14px] font-medium text-black hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
-            >
-              {venture.cta}
-              <span className="transition-transform duration-300 group-hover/btn:translate-x-[2px] group-hover/btn:translate-y-[-2px]">
-                <ArrowIcon className="w-3 h-[14px]" />
+            <p className="mt-[6px] h-[44px] overflow-hidden text-[14px] max-[809px]:text-[13.5px] leading-[1.55] text-muted line-clamp-2">
+              {venture.description}
+            </p>
+            <div className="mt-[8px]">
+              <span className="inline-flex items-center gap-[4px] w-fit px-2.5 py-[3px] rounded-full border border-black dark:border-white/30 text-[12px] font-medium text-black dark:!text-white group-hover:bg-black group-hover:text-white dark:group-hover:!bg-white dark:group-hover:!text-black transition-colors">
+                {venture.cta}
+                <span className="transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[-2px]">
+                  <ArrowIcon className="w-[10px] h-[11px]" />
+                </span>
               </span>
-            </motion.a>
-          </Magnetic>
-        </motion.div>
+            </div>
+          </div>
+        </motion.a>
       ))}
     </div>
   );

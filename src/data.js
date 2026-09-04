@@ -1,8 +1,4 @@
 import {
-  BarChart3,
-  BrainCircuit,
-  Bot,
-  Compass,
   Instagram,
   Github,
   Linkedin,
@@ -11,10 +7,14 @@ import {
 
 // --- Data Models ---
 
-export const TABS = ['Ventures', 'About', 'Experience', 'Services', 'Tech Stack', 'Connect'];
+export const TABS = ['Ventures', 'About', 'Experience', 'Tech Stack', 'Connect'];
 
 export const ABOUT = {
-  bio: "I'm a Data Science enthusiast with a passion for turning raw data into meaningful insights and intelligent systems. Over the years, I've explored machine learning, deep learning, and AI-driven applications, finding my sweet spot exactly where data meets intelligent decision-making.",
+  tagline: {
+    pre: 'Data Science undergraduate turning raw data into',
+    accent: 'intelligent,',
+    post: 'production-ready systems.',
+  },
   location: 'Maharashtra, India',
   focus: ['Python', 'Machine Learning', 'Deep Learning', 'Data Viz', 'LLMs', 'Automation'],
   education: [
@@ -44,58 +44,41 @@ export const EXPERIENCE = [
     id: 1,
     role: 'Software Engineer Intern',
     company: 'Akola Police Cyber Cell',
-    initials: 'AP',
-    location: 'Akola, Maharashtra, India',
-    duration: 'September 2025 – March 2026 (7 months)',
-    tech: ['Node.js', 'Express', 'Security', 'Public Safety'],
-    bullets: [
-      'Software Development: Contributed to the development and maintenance of internal software solutions.',
-      'Security Focus: Gained practical experience developing secure, reliable applications in a high-stakes public safety environment.'
-    ]
+    location: 'Akola, Maharashtra',
+    period: 'Sep 2025 — Mar 2026',
+    span: '7 months',
+    summary: 'Built and maintained internal software for a public-safety cyber cell — secure, reliable applications in a high-stakes environment.',
+    tech: ['Node.js', 'Express', 'Security', 'Public Safety']
   },
   {
     id: 2,
     role: 'Internship Trainee',
     company: 'Xenosis IT Solutions',
-    initials: 'XI',
-    location: 'Nagpur, Maharashtra, India',
-    duration: 'May 2024 – July 2024 (3 months)',
-    tech: ['Agile', 'SDLC', 'Version Control', 'Web Dev'],
-    bullets: [
-      'Project Contribution: Successfully completed a 3-month intensive training program, contributing to live or simulated projects by applying foundational software development principles.',
-      'Team Collaboration: Worked directly with an agile team to learn best practices in software development lifecycle (SDLC), code reviews, and version control.'
-    ]
+    location: 'Nagpur, Maharashtra',
+    period: 'May 2024 — Jul 2024',
+    span: '3 months',
+    summary: 'Completed an intensive agile training program, contributing to live projects while learning SDLC, code reviews and version control.',
+    tech: ['Agile', 'SDLC', 'Version Control', 'Web Dev']
   }
 ];
 
 export const VENTURES = [
   {
     id: 1,
-    title: 'Akola CopConnect — WhatsApp ChatBot',
-    description: 'Node.js & Express.js backend for a WhatsApp chatbot — webhook handling, session states and automated responses for faster cyber incident reporting.',
+    title: 'Akola CopConnect',
+    description: 'WhatsApp chatbot built on Node.js & Express — webhook handling and automated responses for faster cyber incident reporting.',
     link: 'https://github.com/mahesh-atx',
     cta: 'View GitHub profile',
-    tag: 'Chatbot · Public Safety',
-    year: '2025',
-    tech: ['Node.js', 'Express.js', 'WhatsApp API']
+    year: '2025'
   },
   {
     id: 2,
-    title: 'SP-e Samvaad — Appointment Booking Portal',
-    description: 'Akola Police appointment booking portal built with Google Apps Script, Sheets, Calendar & Meet APIs — automated Meet invites and an admin dashboard.',
+    title: 'SP-e Samvaad',
+    description: 'Appointment booking portal for Akola Police — automated Google Meet invites, Sheets sync and an admin dashboard.',
     link: 'https://akolapoliceevisit-code.github.io/SP-e-Sanvad/',
     cta: 'Visit site',
-    tag: 'Web App · Automation',
-    year: '2024',
-    tech: ['Apps Script', 'Google Sheets', 'Calendar API']
+    year: '2024'
   }
-];
-
-export const SERVICES = [
-  { id: '01', title: 'Data Analysis & Visualization', description: 'Turn raw data into clear, actionable dashboards and stories.', icon: BarChart3 },
-  { id: '02', title: 'Machine Learning Model Development', description: 'Build, train and deploy predictive models end to end.', icon: BrainCircuit },
-  { id: '03', title: 'AI & LLM Integration', description: 'Chatbots, RAG and automation powered by large language models.', icon: Bot },
-  { id: '04', title: 'End-to-End Data Science Consulting', description: 'Strategy, pipelines and insights tailored to your goals.', icon: Compass },
 ];
 
 export const TECH_STACK = [
