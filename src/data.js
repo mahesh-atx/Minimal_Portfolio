@@ -44,27 +44,21 @@ export const EXPERIENCE = [
     id: 1,
     role: 'Software Engineer Intern',
     company: 'Akola Police Cyber Cell',
-    initials: 'AP',
-    location: 'Akola, Maharashtra, India',
-    duration: 'September 2025 – March 2026 (7 months)',
-    tech: ['Node.js', 'Express', 'Security', 'Public Safety'],
-    bullets: [
-      'Software Development: Contributed to the development and maintenance of internal software solutions.',
-      'Security Focus: Gained practical experience developing secure, reliable applications in a high-stakes public safety environment.'
-    ]
+    location: 'Akola, Maharashtra',
+    period: 'Sep 2025 — Mar 2026',
+    span: '7 months',
+    summary: 'Built and maintained internal software for a public-safety cyber cell — secure, reliable applications in a high-stakes environment.',
+    tech: ['Node.js', 'Express', 'Security', 'Public Safety']
   },
   {
     id: 2,
     role: 'Internship Trainee',
     company: 'Xenosis IT Solutions',
-    initials: 'XI',
-    location: 'Nagpur, Maharashtra, India',
-    duration: 'May 2024 – July 2024 (3 months)',
-    tech: ['Agile', 'SDLC', 'Version Control', 'Web Dev'],
-    bullets: [
-      'Project Contribution: Successfully completed a 3-month intensive training program, contributing to live or simulated projects by applying foundational software development principles.',
-      'Team Collaboration: Worked directly with an agile team to learn best practices in software development lifecycle (SDLC), code reviews, and version control.'
-    ]
+    location: 'Nagpur, Maharashtra',
+    period: 'May 2024 — Jul 2024',
+    span: '3 months',
+    summary: 'Completed an intensive agile training program, contributing to live projects while learning SDLC, code reviews and version control.',
+    tech: ['Agile', 'SDLC', 'Version Control', 'Web Dev']
   }
 ];
 

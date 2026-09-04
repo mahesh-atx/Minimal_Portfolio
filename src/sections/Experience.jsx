@@ -1,49 +1,62 @@
 import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import { EXPERIENCE } from '../data';
 import { fadeSlideUp } from '../animations';
 
 export default function Experience() {
   return (
-    <div className="flex flex-col gap-[40px]">
-      <div className="flex flex-col gap-[26px]">
-        <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-wider font-bold text-subtle">
-          Experience
-        </motion.h3>
-        <div className="flex flex-col">
-          {EXPERIENCE.map((exp) => (
-            <motion.div
-              variants={fadeSlideUp}
-              whileHover={{ x: 6 }}
-              transition={{ type: 'spring', stiffness: 300, damping: 24 }}
-              key={exp.id}
-              className="relative py-6 border-b border-[#eeeeee] last:border-0 first:pt-0 flex flex-col md:flex-row gap-4 md:gap-8 group"
-            >
-              <div className="flex md:flex-col items-center md:items-start gap-3 md:w-44 md:flex-shrink-0">
-                <div className="w-10 h-10 rounded-[10px] bg-black dark:!bg-white text-white dark:!text-black font-bold flex items-center justify-center text-[13px] shadow-logo">{exp.initials}</div>
-                <span className="text-[13px] text-subtle font-normal md:mt-1">{exp.duration}</span>
-              </div>
-              <div className="flex-1 space-y-2">
-                <h4 className="text-[17px] font-medium text-black">
-                  {exp.role} <span className="ml-1 px-2 py-[2px] rounded-[6px] bg-gray-100 font-medium text-black inline-block">at {exp.company}</span>
-                </h4>
-                <p className="text-[14px] font-normal text-subtle">{exp.location}</p>
-                <ul className="space-y-2 pt-1">
-                  {exp.bullets.map((bullet, idx) => (
-                    <li key={idx} className="text-[15px] font-normal leading-[1.6] text-muted flex gap-2">
-                      <span className="flex-shrink-0">•</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {exp.tech.map((t) => (
-                    <span key={t} className="text-[12px] font-medium px-2.5 py-1 rounded-full bg-black/[0.05] dark:bg-white/10 text-black/70 dark:text-[#cfcfcf]">{t}</span>
-                  ))}
+    <div className="flex flex-col gap-[16px]">
+      <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">
+        Experience
+      </motion.h3>
+
+      <div className="flex flex-col gap-[12px]">
+        {EXPERIENCE.map((exp) => (
+          <motion.div
+            variants={fadeSlideUp}
+            whileHover={{ y: -3 }}
+            transition={{ type: 'spring', stiffness: 320, damping: 22 }}
+            key={exp.id}
+            className="group/exp flex items-center gap-[14px] md:gap-[22px] p-[16px] md:p-[18px] rounded-[14px] border border-black/[0.05] dark:border-white/10 bg-white shadow-card transition-colors duration-300 hover:border-black/15 dark:hover:border-white/20"
+          >
+            {/* Index dot — inverts on hover */}
+            <span className="shrink-0 flex items-center justify-center w-[26px] h-[26px] rounded-full border border-black/10 dark:border-white/15 text-[10.5px] font-bold text-black/40 dark:text-white/40 transition-colors duration-300 group-hover/exp:bg-black group-hover/exp:text-white group-hover/exp:border-black dark:group-hover/exp:!bg-white dark:group-hover/exp:!text-black dark:group-hover/exp:!border-white">
+              0{exp.id}
+            </span>
+
+            {/* Duration column */}
+            <div className="hidden md:flex w-[132px] shrink-0 flex-col gap-[2px]">
+              <span className="text-[13px] font-medium text-subtle leading-[1.4]">{exp.period}</span>
+              <span className="text-[12px] text-black/40 dark:text-white/40">{exp.span}</span>
+            </div>
+
+            {/* Body */}
+            <div className="flex-1 min-w-0">
+              <div className="flex items-start justify-between gap-[10px]">
+                <div className="min-w-0">
+                  <h4 className="text-[15.5px] font-medium leading-[1.4] text-black">
+                    {exp.role}
+                    <span className="text-muted font-normal"> · {exp.company}</span>
+                  </h4>
+                  <p className="text-[13.5px] mt-[3px] leading-[1.5] text-muted">
+                    {exp.location}
+                    <span className="md:hidden"> · {exp.period} ({exp.span})</span>
+                  </p>
                 </div>
+                <ArrowUpRight
+                  className="shrink-0 w-[15px] h-[15px] text-subtle opacity-0 translate-x-[-4px] translate-y-[4px] group-hover/exp:opacity-100 group-hover/exp:translate-x-0 group-hover/exp:translate-y-0 transition-all duration-300"
+                  aria-hidden="true"
+                />
               </div>
-            </motion.div>
-          ))}
-        </div>
+              <p className="text-[14px] mt-[8px] leading-[1.55] text-muted line-clamp-2">
+                {exp.summary}
+              </p>
+              <p className="text-[12.5px] font-medium mt-[8px] tracking-[0.02em] text-black/45 dark:text-white/45">
+                {exp.tech.join(' · ')}
+              </p>
+            </div>
+          </motion.div>
+        ))}
       </div>
     </div>
   );
