@@ -62,8 +62,8 @@ export default function Hero({ handleCopyEmail }) {
 
       {/* Intro — parallax wrapper around the staggered text block */}
       <motion.div style={{ x: introX, y: introY }} className="w-full">
-        <motion.div variants={fadeSlideUp} className="flex flex-col gap-[10px] w-full">
-          <h2 className="text-[30px] max-[809px]:text-[26px] font-medium leading-[1.35] tracking-[-0.02em] text-black">
+        <motion.div variants={fadeSlideUp} className="flex flex-col gap-[6px] w-full">
+          <h2 className="text-[30px] max-[809px]:text-[26px] font-medium leading-[1.15] tracking-[-0.02em] text-black">
             <AnimatedWords text="Hey, I'm" className="inline" />{' '}
             <AnimatedWords
               text="Mahesh Dongare."
@@ -73,9 +73,9 @@ export default function Hero({ handleCopyEmail }) {
           </h2>
           <AnimatedWords
             text="I'm a Data Science, AI & ML Enthusiast."
-            className="text-[17px] max-[809px]:text-[15.5px] font-medium leading-[1.55] text-black/60 block"
+            className="text-[17px] max-[809px]:text-[15.5px] font-medium leading-[1.35] text-black/60 block"
           />
-          <p className="text-[17px] max-[809px]:text-[15.5px] font-medium leading-[1.55] text-black/60">
+          <p className="text-[17px] max-[809px]:text-[15.5px] font-medium leading-[1.35] text-black/60">
             <AnimatedWords text="I spend most of my time building" className="inline" />{' '}
             <AnimatePresence mode="wait">
               <motion.span
@@ -90,7 +90,7 @@ export default function Hero({ handleCopyEmail }) {
               </motion.span>
             </AnimatePresence>
           </p>
-          <motion.div variants={fadeSlideUp} className="mt-[10px]">
+          <motion.div variants={fadeSlideUp} className="mt-[8px]">
             <span className="inline-flex items-center gap-[8px] px-[12px] py-[6px] rounded-full border border-black/10 dark:border-white/15 bg-white dark:!bg-white/[0.06] shadow-card">
               <span className="relative flex h-[7px] w-[7px]">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />

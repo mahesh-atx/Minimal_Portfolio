@@ -6,31 +6,30 @@ import { getTabId } from '../utils';
 export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark }) {
   return (
     <div className="fixed top-0 left-0 right-0 z-[55] flex justify-center px-[20px] pt-[20px] max-[809px]:pt-[15px] pointer-events-none">
-      <motion.div
+      <motion.nav
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-wrap items-center justify-between gap-x-[14px] gap-y-[10px]"
+        aria-label="Portfolio sections"
+        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-wrap items-center gap-x-[6px] gap-y-[6px] p-[5px] rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
       >
-        {/* Logo monogram — left */}
+        {/* Logo — inside the strip, left */}
         <motion.button
           type="button"
           onClick={() => setActiveTab('Ventures')}
-          whileHover={{ scale: 1.07, rotate: -3 }}
+          whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.94 }}
           transition={{ type: 'spring', stiffness: 400, damping: 15 }}
           aria-label="Back to Ventures"
-          className="order-1 font-serif-accent text-[19px] leading-none text-black dark:!text-white py-[7px]"
+          className="order-1 shrink-0 px-[10px] py-[7px] text-[16px] font-bold leading-none tracking-[-0.01em] text-black dark:!text-white"
         >
           Md.
         </motion.button>
 
-        {/* Tabs — same pill design, centered */}
-        <motion.nav
-          role="tablist"
-          aria-label="Portfolio sections"
-          className="order-2 max-[809px]:order-3 max-[809px]:basis-full flex-1 min-w-0 flex items-center justify-center gap-[4px] max-[809px]:gap-[3px] max-[809px]:flex-wrap p-[5px] rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
-        >
+        <span className="order-2 max-[809px]:hidden w-px h-[16px] bg-black/10 dark:bg-white/15" aria-hidden="true" />
+
+        {/* Tabs — centered in the same strip */}
+        <div role="tablist" className="order-3 max-[809px]:basis-full flex-1 min-w-0 flex items-center gap-[4px] max-[809px]:justify-center max-[809px]:flex-wrap max-[809px]:gap-[3px]">
           {TABS.map((tab) => (
             <button
               key={tab}
@@ -65,22 +64,24 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
               </span>
             </button>
           ))}
-        </motion.nav>
+        </div>
 
-        {/* Theme toggle — right */}
+        <span className="order-4 max-[809px]:hidden w-px h-[16px] bg-black/10 dark:bg-white/15" aria-hidden="true" />
+
+        {/* Theme toggle — inside the strip, right */}
         <motion.button
           type="button"
           onClick={() => setDark(!dark)}
-          whileHover={{ scale: 1.12, rotate: 20 }}
+          whileHover={{ scale: 1.1, rotate: 20 }}
           whileTap={{ scale: 0.9 }}
           transition={{ type: 'spring', stiffness: 400, damping: 15 }}
           aria-label={`Switch to ${dark ? 'light' : 'dark'} mode`}
           aria-pressed={dark}
-          className="order-3 max-[809px]:order-2 shrink-0 flex items-center justify-center w-[36px] h-[36px] rounded-full bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10 text-black dark:!text-white"
+          className="order-5 max-[809px]:order-2 shrink-0 w-[34px] h-[34px] rounded-full flex items-center justify-center text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
         >
           {dark ? <Sun className="w-[15px] h-[15px]" /> : <Moon className="w-[15px] h-[15px]" />}
         </motion.button>
-      </motion.div>
+      </motion.nav>
     </div>
   );
 }
