@@ -13,7 +13,6 @@ export const ABOUT = {
   tagline: 'Data Science undergraduate turning raw data into intelligent, production-ready systems.',
   location: 'Maharashtra, India',
   focus: ['Python', 'Machine Learning', 'Deep Learning', 'Data Viz', 'LLMs', 'Automation'],
-  disciplines: ['Data Science', 'Machine Learning', 'Artificial Intelligence', 'Automation'],
   education: [
     {
       id: 1,

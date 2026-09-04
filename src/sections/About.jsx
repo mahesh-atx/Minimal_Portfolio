@@ -1,8 +1,17 @@
 import { motion } from 'framer-motion';
-import { MapPin } from 'lucide-react';
+import { MapPin, Braces, BrainCircuit, Network, BarChart3, MessageSquare, Zap } from 'lucide-react';
 import { ABOUT } from '../data';
 import { fadeSlideUp, wordReveal, wordContainer } from '../animations';
 import Marquee from '../components/Marquee';
+
+const FOCUS_ICONS = {
+  Python: Braces,
+  'Machine Learning': BrainCircuit,
+  'Deep Learning': Network,
+  'Data Viz': BarChart3,
+  LLMs: MessageSquare,
+  Automation: Zap,
+};
 
 function RevealText({ text, className }) {
   return (
@@ -34,17 +43,23 @@ export default function About() {
         className="block text-[24px] max-[809px]:text-[21px] font-medium leading-[1.45] text-black"
       />
 
-      {/* Focus areas marquee strip */}
-      <motion.div variants={fadeSlideUp} className="border-y border-[#eeeeee] py-[13px]">
-        <Marquee duration={26} pauseOnHover>
-          {[...ABOUT.focus, ...ABOUT.focus].map((item) => (
-            <span key={item} className="flex items-center">
-              <span className="text-[13px] font-medium uppercase tracking-[0.18em] text-subtle whitespace-nowrap px-[16px]">
-                {item}
+      {/* Single minimal monochrome strip — animates with scroll velocity */}
+      <motion.div variants={fadeSlideUp} className="border-y border-[#eeeeee] py-[14px]">
+        <Marquee baseVelocity={3}>
+          {ABOUT.focus.map((item) => {
+            const Icon = FOCUS_ICONS[item];
+            return (
+              <span key={item} className="flex items-center whitespace-nowrap">
+                <span className="flex items-center gap-[10px] px-[24px]">
+                  {Icon && <Icon className="w-[15px] h-[15px] text-subtle" strokeWidth={1.75} aria-hidden="true" />}
+                  <span className="text-[13px] font-medium uppercase tracking-[0.18em] text-subtle">
+                    {item}
+                  </span>
+                </span>
+                <span className="w-[3px] h-[3px] rounded-full bg-black/20 dark:bg-white/25" aria-hidden="true" />
               </span>
-              <span className="text-[11px] text-black/25 dark:text-white/30" aria-hidden="true">✦</span>
-            </span>
-          ))}
+            );
+          })}
         </Marquee>
       </motion.div>
 
@@ -73,20 +88,6 @@ export default function About() {
           ))}
         </div>
       </div>
-
-      {/* Disciplines marquee strip — reversed, outlined display text */}
-      <motion.div variants={fadeSlideUp} className="border-y border-[#eeeeee] py-[16px]">
-        <Marquee reverse duration={38}>
-          {[...ABOUT.disciplines, ...ABOUT.disciplines].map((item, i) => (
-            <span key={i} className="flex items-center">
-              <span className="text-outline text-[32px] max-[809px]:text-[24px] font-semibold uppercase tracking-[-0.02em] whitespace-nowrap px-[20px]">
-                {item}
-              </span>
-              <span className="text-[14px] text-subtle" aria-hidden="true">✦</span>
-            </span>
-          ))}
-        </Marquee>
-      </motion.div>
     </div>
   );
 }

@@ -124,39 +124,6 @@
   .dark .shadow-avatar {
     box-shadow: 0 3px 12px rgb(0 0 0 / 50%);
   }
-
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee-scroll var(--marquee-duration, 30s) linear infinite;
-  }
-
-  .marquee-reverse {
-    animation-direction: reverse;
-  }
-
-  .marquee-hover-pause:hover .marquee-track {
-    animation-play-state: paused;
-  }
-
-  .text-outline {
-    color: transparent;
-    -webkit-text-stroke: 1.25px rgb(0 0 0 / 38%);
-  }
-
-  .dark .text-outline {
-    -webkit-text-stroke: 1.25px rgb(255 255 255 / 45%);
-  }
-}
-
-@keyframes marquee-scroll {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 @keyframes gradient-shift {
