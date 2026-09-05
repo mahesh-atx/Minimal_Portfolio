@@ -45,8 +45,11 @@ export default function TechStack({ dark }) {
                 <img
                   src={dark && (tech.name === 'GitHub' || tech.name === 'Pandas') ? `${tech.icon}/white` : tech.icon}
                   alt={tech.name}
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                   decoding="async"
+                  width="28"
+                  height="28"
                   className="w-[28px] h-[28px] rounded-lg object-cover transition-transform duration-300 group-hover:scale-125 group-hover:rotate-6"
                 />
                 <span className="text-[16px] font-medium text-black group-hover:underline underline-offset-4 decoration-1 transition-all duration-300">{tech.name}</span>
