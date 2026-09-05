@@ -56,7 +56,7 @@ export default function Hero() {
         width="100"
         height="100"
         fetchPriority="high"
-        className="w-[100px] h-[100px] rounded-[20px] object-cover border-2 border-white shadow-avatar"
+        className="w-[100px] h-[100px] rounded-[20px] object-cover border-2 border-[#A3B565] shadow-avatar"
       />
 
       {/* Intro — parallax wrapper around the staggered text block */}
