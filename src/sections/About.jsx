@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
 import { MapPin, ArrowUpRight } from 'lucide-react';
 import { ABOUT } from '../data';
-import { fadeSlideUp, wordReveal, wordContainer } from '../animations';
+import { fadeSlideUp, wordReveal, wordContainer, staggerContainer } from '../animations';
 import Marquee from '../components/Marquee';
+import RevealHeading from '../components/RevealHeading';
 
 function RevealText({ text, className }) {
   return (
@@ -18,7 +19,13 @@ function RevealText({ text, className }) {
 
 export default function About() {
   return (
-    <div className="flex flex-col gap-[32px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={staggerContainer}
+      className="flex flex-col gap-[32px]"
+    >
       {/* Header row */}
       <motion.div variants={fadeSlideUp} className="flex items-center justify-between gap-[12px]">
         <span className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">Profile</span>
@@ -48,7 +55,7 @@ export default function About() {
               <span className="text-[14px] font-medium text-subtle px-[22px]">
                 {item}
               </span>
-              <span className="w-[4px] h-[4px] rounded-full bg-black/20 dark:bg-white/25" aria-hidden="true" />
+              <span className="w-[5px] h-[5px] rounded-full bg-[#A3B565]" aria-hidden="true" />
             </span>
           ))}
         </Marquee>
@@ -57,21 +64,43 @@ export default function About() {
       {/* Education — spaced cards with arrow reveal */}
       <div className="flex flex-col gap-[20px]">
         <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">
-          Education
+          <RevealHeading>Education</RevealHeading>
         </motion.h3>
-        <div className="flex flex-col gap-[16px]">
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          variants={staggerContainer}
+          className="relative flex flex-col gap-[16px] pl-[28px]"
+        >
+          <motion.span
+            initial={{ scaleY: 0 }}
+            whileInView={{ scaleY: 1 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            aria-hidden="true"
+            className="pointer-events-none absolute bottom-[14px] left-[8px] top-[14px] origin-top w-px bg-black/15 dark:bg-white/15"
+          />
           {ABOUT.education.map((edu) => (
             <motion.div
               variants={fadeSlideUp}
               key={edu.id}
-              className="group/edu flex items-start gap-[16px] md:gap-[30px] p-[20px] md:p-[24px] rounded-[16px] border border-black/[0.05] dark:border-white/10 bg-white shadow-card transition-colors duration-300 hover:border-black/15 dark:hover:border-white/20"
+              className="group/edu relative flex items-start gap-[16px] md:gap-[30px] p-[20px] md:p-[24px] rounded-[16px] border border-black/[0.05] dark:border-white/10 bg-white shadow-card transition-colors duration-300 hover:border-black/15 dark:hover:border-white/20"
             >
-              <div className="hidden md:block w-[140px] shrink-0 pt-[2px]">
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute left-[-26px] top-[27px] z-10 h-[12px] w-[12px] rounded-full bg-[#A3B565]"
+              />
+              <div className="hidden md:flex w-[140px] shrink-0 flex-col gap-[4px] pt-[2px]">
+                <span className="text-[11px] font-medium tracking-[0.12em] text-[#A3B565]">{String(edu.id).padStart(2, '0')}</span>
                 <span className="text-[13.5px] font-medium text-black/70 dark:text-white/70 leading-[1.5]">{edu.duration}</span>
               </div>
               <div className="flex-1 min-w-0">
+                <span className="mb-[8px] block text-[11px] font-medium tracking-[0.12em] text-[#A3B565] md:hidden">{String(edu.id).padStart(2, '0')}</span>
                 <div className="flex items-start justify-between gap-[12px]">
-                  <h4 className="text-[16px] font-medium leading-[1.45] text-black">{edu.degree}</h4>
+                  <h4 className="text-[16px] font-medium leading-[1.45] text-black">
+                    <RevealHeading>{edu.degree}</RevealHeading>
+                  </h4>
                   <ArrowUpRight
                     className="shrink-0 w-[16px] h-[16px] text-subtle opacity-0 translate-x-[-4px] translate-y-[4px] group-hover/edu:opacity-100 group-hover/edu:translate-x-0 group-hover/edu:translate-y-0 transition-all duration-300"
                     aria-hidden="true"
@@ -82,8 +111,8 @@ export default function About() {
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }

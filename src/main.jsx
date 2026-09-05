@@ -5,7 +5,7 @@ import './index.css';
 
 import { TABS } from './data';
 import { getTabId } from './utils';
-import { staggerContainer } from './animations';
+import { tabPanel } from './animations';
 
 import Hero from './sections/Hero';
 import Nav from './sections/Nav';
@@ -89,16 +89,16 @@ function App() {
         <div className="w-[700px] max-[809px]:w-[90%] pt-[170px] pb-[100px] max-[809px]:pt-[140px] max-[809px]:pb-[100px] flex flex-col gap-[80px] max-[809px]:gap-[60px]">
           <Nav activeTab={activeTab} setActiveTab={setActiveTab} onKeyDown={handleTabKeyDown} dark={dark} setDark={setDark} />
 
-          <Hero handleCopyEmail={handleCopyEmail} />
+          <Hero />
 
           {/* Tab Content */}
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={activeTab}
               initial="hidden"
               animate="visible"
               exit="exit"
-              variants={staggerContainer}
+              variants={tabPanel}
               id={`panel-${getTabId(activeTab)}`}
               role="tabpanel"
               aria-labelledby={`tab-${getTabId(activeTab)}`}

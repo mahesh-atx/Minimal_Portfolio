@@ -11,7 +11,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         aria-label="Portfolio sections"
-        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-wrap items-center justify-between gap-x-[6px] gap-y-[6px] p-[5px] rounded-full max-[809px]:rounded-[26px] bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
+        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-nowrap items-center justify-between gap-x-[6px] p-[5px] overflow-hidden rounded-full max-[809px]:rounded-[26px] bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
       >
         {/* Logo — inside the strip, left */}
         <motion.button
@@ -23,13 +23,13 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
           aria-label="Back to Ventures"
           className="order-1 shrink-0 h-[35px] px-[10px] flex items-center text-[16px] font-bold leading-none tracking-[-0.01em] text-black dark:!text-white"
         >
-          Md.
+          Md<span className="text-[#A3B565]">.</span>
         </motion.button>
 
         <span className="order-2 max-[809px]:hidden w-px h-[16px] bg-black/10 dark:bg-white/15" aria-hidden="true" />
 
         {/* Tabs — centered in the same strip */}
-        <div role="tablist" className="order-3 max-[809px]:basis-full flex-1 min-w-0 flex items-center gap-[4px] max-[809px]:justify-center max-[809px]:flex-wrap max-[809px]:gap-[3px]">
+        <div role="tablist" className="order-3 max-[809px]:order-2 flex-1 min-w-0 flex items-center justify-center gap-[4px] max-[809px]:gap-[2px] overflow-x-auto scrollbar-hide">
           {TABS.map((tab) => (
             <button
               key={tab}
@@ -42,19 +42,12 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
               onClick={() => setActiveTab(tab)}
               onKeyDown={onKeyDown}
               className={`
-                relative flex-1 max-[809px]:flex-none h-[35px] flex items-center justify-center px-3 max-[809px]:px-[12px] rounded-full
-                text-[14px] max-[809px]:text-[13px] font-medium transition-colors duration-300 text-center whitespace-nowrap
-                ${activeTab === tab ? 'text-white dark:!text-black' : 'text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10'}
+                relative flex-1 max-[809px]:flex-none h-[35px] flex items-center justify-center px-3 max-[809px]:px-[8px]
+                text-[14px] max-[809px]:text-[12px] font-medium transition-colors duration-300 text-center whitespace-nowrap
+                ${activeTab === tab ? 'text-[#A3B565]' : 'text-subtle hover:text-[#A3B565]'}
               `}
             >
-              {activeTab === tab && (
-                <motion.span
-                  layoutId="tab-pill"
-                  className="absolute inset-0 bg-black dark:!bg-white rounded-full"
-                  transition={{ type: 'spring', stiffness: 420, damping: 32 }}
-                />
-              )}
-              <span className="relative z-10">
+              <span>
                 {tab === 'Tech Stack' ? (
                   <>
                     <span className="max-[809px]:hidden">Tech Stack</span>
@@ -77,7 +70,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
           transition={{ type: 'spring', stiffness: 400, damping: 15 }}
           aria-label={`Switch to ${dark ? 'light' : 'dark'} mode`}
           aria-pressed={dark}
-          className="order-5 max-[809px]:order-2 shrink-0 w-[35px] h-[35px] rounded-full flex items-center justify-center text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
+          className="order-5 max-[809px]:order-3 shrink-0 w-[35px] h-[35px] rounded-full flex items-center justify-center text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10 transition-colors"
         >
           {dark ? <Sun className="w-[15px] h-[15px]" /> : <Moon className="w-[15px] h-[15px]" />}
         </motion.button>

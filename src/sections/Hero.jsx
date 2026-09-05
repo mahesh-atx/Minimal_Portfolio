@@ -1,14 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import avatarImg from '../avatar.webp';
-import { SOCIALS } from '../data';
 import { fadeSlideUp, staggerContainer } from '../animations';
 import AnimatedWords from '../components/AnimatedWords';
-import Magnetic from '../components/Magnetic';
+import Marquee from '../components/Marquee';
 
 const ROTATING = ['intelligent systems.', 'machine learning models.', 'data-driven products.', 'LLM-powered tools.'];
 
-export default function Hero({ handleCopyEmail }) {
+export default function Hero() {
   const [wordIdx, setWordIdx] = useState(0);
 
   useEffect(() => {
@@ -57,7 +56,7 @@ export default function Hero({ handleCopyEmail }) {
         width="100"
         height="100"
         fetchPriority="high"
-        className="w-[100px] h-[100px] rounded-[20px] object-cover border-2 border-white shadow-avatar"
+        className="w-[100px] h-[100px] rounded-[20px] object-cover border-2 border-[#A3B565] shadow-avatar"
       />
 
       {/* Intro — parallax wrapper around the staggered text block */}
@@ -80,52 +79,32 @@ export default function Hero({ handleCopyEmail }) {
             <AnimatePresence mode="wait">
               <motion.span
                 key={wordIdx}
-                initial={{ opacity: 0, y: 10, filter: 'blur(6px)' }}
+                initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                exit={{ opacity: 0, y: -10, filter: 'blur(6px)' }}
+                exit={{ opacity: 0, y: -10, filter: 'blur(5px)' }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className="font-serif-accent inline-block text-black/80 dark:text-white/85"
+                className="font-serif-accent inline-block whitespace-nowrap text-[17px] max-[809px]:text-[15.5px] font-normal leading-[1.35] text-[#A3B565]"
               >
                 {ROTATING[wordIdx]}
               </motion.span>
             </AnimatePresence>
           </p>
-          <motion.div variants={fadeSlideUp} className="mt-[8px]">
-            <span className="inline-flex items-center gap-[8px] px-[12px] py-[6px] rounded-full border border-black/10 dark:border-white/15 bg-white dark:!bg-white/[0.06] shadow-card">
-              <span className="relative flex h-[7px] w-[7px]">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                <span className="relative inline-flex h-[7px] w-[7px] rounded-full bg-emerald-500" />
+          <motion.div
+            variants={fadeSlideUp}
+            className="mt-[8px] w-[700px] max-[809px]:w-[90vw] overflow-hidden border-y border-[#eeeeee] dark:border-white/10 dark:bg-white/[0.04] py-[14px]"
+          >
+            <Marquee baseVelocity={3}>
+              <span className="flex items-center whitespace-nowrap">
+                <span className="text-[14px] font-medium text-subtle px-[22px]">
+                  Mahesh Dongare _ Data Science AI ML
+                </span>
+                <span className="w-[5px] h-[5px] rounded-full bg-[#A3B565]" aria-hidden="true" />
               </span>
-              <span className="text-[12.5px] font-medium text-black/60 dark:text-[#b8b8b8]">Available for new opportunities</span>
-            </span>
+            </Marquee>
           </motion.div>
         </motion.div>
       </motion.div>
 
-      {/* Socials + theme toggle */}
-      <motion.div variants={fadeSlideUp} className="flex items-center gap-[15px] mt-[10px] text-black">
-        {SOCIALS.map((s) => {
-          const Icon = s.icon;
-          return (
-            <Magnetic key={s.label} strength={0.4} className="inline-block">
-              <motion.a
-                variants={fadeSlideUp}
-                whileHover={{ y: -3, scale: 1.18, rotate: 4 }}
-                whileTap={{ scale: 0.88 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                href={s.link}
-                target={s.link.startsWith('mailto:') ? undefined : '_blank'}
-                rel={s.link.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                onClick={s.link.startsWith('mailto:') ? (e) => handleCopyEmail(e, s.link.replace('mailto:', '')) : undefined}
-                aria-label={s.label}
-                className="block text-black hover:opacity-70 transition-opacity"
-              >
-                <Icon className="w-5 h-5" />
-              </motion.a>
-            </Magnetic>
-          );
-        })}
-      </motion.div>
     </motion.header>
   );
 }

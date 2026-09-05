@@ -1,36 +1,63 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { EXPERIENCE } from '../data';
-import { fadeSlideUp } from '../animations';
+import { fadeSlideUp, staggerContainer } from '../animations';
+import RevealHeading from '../components/RevealHeading';
 
 export default function Experience() {
   return (
-    <div className="flex flex-col gap-[20px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={staggerContainer}
+      className="flex flex-col gap-[20px]"
+    >
       <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">
-        Experience
+        <RevealHeading>Experience</RevealHeading>
       </motion.h3>
 
-      <div className="flex flex-col gap-[16px]">
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+        className="relative flex flex-col gap-[16px] pl-[28px]"
+      >
+        <motion.span
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-[14px] left-[8px] top-[14px] origin-top w-px bg-black/15 dark:bg-white/15"
+        />
         {EXPERIENCE.map((exp) => (
           <motion.div
             variants={fadeSlideUp}
             whileHover={{ y: -3 }}
             transition={{ type: 'spring', stiffness: 320, damping: 22 }}
             key={exp.id}
-            className="group/exp flex items-start gap-[16px] md:gap-[30px] p-[20px] md:p-[24px] rounded-[16px] border border-black/[0.05] dark:border-white/10 bg-white shadow-card transition-colors duration-300 hover:border-black/15 dark:hover:border-white/20"
+            className="group/exp relative flex items-start gap-[16px] md:gap-[30px] p-[20px] md:p-[24px] rounded-[16px] border border-black/[0.05] dark:border-white/10 bg-white shadow-card transition-colors duration-300 hover:border-black/15 dark:hover:border-white/20"
           >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-[-26px] top-[27px] z-10 h-[12px] w-[12px] rounded-full bg-[#A3B565]"
+            />
             {/* Duration column */}
-            <div className="hidden md:flex w-[140px] shrink-0 flex-col gap-[3px] pt-[2px]">
+            <div className="hidden md:flex w-[140px] shrink-0 flex-col gap-[4px] pt-[2px]">
+              <span className="text-[11px] font-medium tracking-[0.12em] text-[#A3B565]">{String(exp.id).padStart(2, '0')}</span>
               <span className="text-[13.5px] font-medium text-black/70 dark:text-white/70 leading-[1.4]">{exp.period}</span>
               <span className="text-[12.5px] text-black/40 dark:text-white/40">{exp.span}</span>
             </div>
 
             {/* Body */}
             <div className="flex-1 min-w-0">
+              <span className="mb-[8px] block text-[11px] font-medium tracking-[0.12em] text-[#A3B565] md:hidden">{String(exp.id).padStart(2, '0')}</span>
               <div className="flex items-start justify-between gap-[12px]">
                 <div className="min-w-0">
                   <h4 className="text-[16.5px] font-medium leading-[1.4] text-black">
-                    {exp.role}
+                    <RevealHeading>{exp.role}</RevealHeading>
                   </h4>
                   <p className="text-[14px] mt-[4px] leading-[1.5] text-muted">
                     {exp.company} · {exp.location}
@@ -51,7 +78,7 @@ export default function Experience() {
             </div>
           </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }

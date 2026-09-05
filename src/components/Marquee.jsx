@@ -1,59 +1,57 @@
 import { useRef } from 'react';
 import {
   motion,
+  useAnimationFrame,
+  useInView,
+  useMotionValue,
+  useMotionValueEvent,
   useScroll,
-  useVelocity,
   useSpring,
   useTransform,
-  useMotionValue,
-  useAnimationFrame,
   wrap,
 } from 'framer-motion';
 
 /**
- * Scroll-velocity marquee: drifts slowly when idle and speeds up
- * (or reverses) as the user scrolls — awwwards-style.
+ * A lightweight compositor-driven marquee. Scroll direction is softened with
+ * a spring so the loop reverses naturally instead of snapping direction.
  */
 export default function Marquee({ children, baseVelocity = 3, className = '' }) {
+  const viewportRef = useRef(null);
   const prefersReducedMotion = useRef(
     typeof window !== 'undefined' &&
       window.matchMedia('(prefers-reduced-motion: reduce)').matches
   );
-
-  const baseX = useMotionValue(0);
+  const isInView = useInView(viewportRef, { amount: 0.1 });
   const { scrollY } = useScroll();
-  const scrollVelocity = useVelocity(scrollY);
-  const smoothVelocity = useSpring(scrollVelocity, {
-    damping: 50,
-    stiffness: 400,
+  const baseX = useMotionValue(0);
+  const initialDirection = baseVelocity < 0 ? -1 : 1;
+  const targetDirection = useMotionValue(initialDirection);
+  const smoothDirection = useSpring(targetDirection, {
+    stiffness: 170,
+    damping: 28,
+    mass: 0.45,
   });
-  const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 4], {
-    clamp: false,
+  const x = useTransform(baseX, (value) => `${wrap(-25, 0, value)}%`);
+  const speed = Math.max(Math.abs(baseVelocity), 0.25) * 1.15;
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = scrollY.getPrevious();
+    if (previous === undefined || latest === previous) return;
+
+    const scrollDirection = latest > previous ? 1 : -1;
+    targetDirection.set(initialDirection * scrollDirection);
   });
-
-  // Four copies of the content; x wraps across one copy (25%) for a seamless loop.
-  const x = useTransform(baseX, (v) => `${wrap(-25, 0, v)}%`);
-  const directionFactor = useRef(1);
-
-  // Subtle skew driven by scroll velocity — the signature awards-site touch.
-  const skewX = useTransform(smoothVelocity, [-1500, 1500], [-3, 3], { clamp: true });
 
   useAnimationFrame((_, delta) => {
-    if (prefersReducedMotion.current) return;
+    if (prefersReducedMotion.current || !isInView) return;
 
-    let moveBy = directionFactor.current * baseVelocity * (delta / 1000);
-    const vf = velocityFactor.get();
-
-    if (vf < 0) directionFactor.current = -1;
-    else if (vf > 0) directionFactor.current = 1;
-
-    moveBy += directionFactor.current * moveBy * Math.abs(vf);
-    baseX.set(baseX.get() + moveBy);
+    const safeDelta = Math.min(delta, 50);
+    baseX.set(baseX.get() + speed * smoothDirection.get() * (safeDelta / 1000));
   });
 
   return (
-    <div className={`overflow-hidden ${className}`}>
-      <motion.div className="flex w-max items-center" style={{ x, skewX }}>
+    <div ref={viewportRef} className={`overflow-hidden ${className}`}>
+      <motion.div className="flex w-max items-center" style={{ x }}>
         {[0, 1, 2, 3].map((copy) => (
           <div key={copy} className="flex shrink-0 items-center" aria-hidden={copy > 0}>
             {children}

@@ -1,12 +1,39 @@
 import { motion } from 'framer-motion';
 import { CONNECT_LINKS } from '../data';
-import { fadeSlideUp } from '../animations';
+import { fadeSlideUp, staggerContainer } from '../animations';
 import Magnetic from '../components/Magnetic';
 import ArrowIcon from '../components/ArrowIcon';
+import RevealHeading from '../components/RevealHeading';
+import PhotoCollage from '../components/PhotoCollage';
 
 export default function Connect({ dark, handleCopyEmail }) {
   return (
-    <div className="flex flex-col gap-[14px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={staggerContainer}
+      className="flex flex-col gap-[14px]"
+    >
+      <div className="flex items-center justify-between gap-[12px]">
+        <motion.h3
+          variants={fadeSlideUp}
+          className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle"
+        >
+          <RevealHeading>Connect</RevealHeading>
+        </motion.h3>
+
+        <motion.a
+          variants={fadeSlideUp}
+          href="/resume.pdf"
+          download="Mahesh-Dongare-Resume.pdf"
+          className="group inline-flex shrink-0 items-center gap-[6px] px-0 py-0 text-[12px] font-medium text-[#A3B565] transition-colors duration-300 hover:text-[#8da34f] hover:underline hover:underline-offset-4"
+        >
+          Download résumé
+          <ArrowIcon className="h-[13px] w-[13px] transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[-2px]" />
+        </motion.a>
+      </div>
+
       {CONNECT_LINKS.map((link, idx) => {
         const Icon = link.icon;
         return (
@@ -33,7 +60,7 @@ export default function Connect({ dark, handleCopyEmail }) {
               </Magnetic>
               <div className="flex flex-col">
                 <span className="font-medium text-[16px] text-black">{link.name}</span>
-                <span className="text-[13px] text-subtle">{link.handle}</span>
+                <span className="text-[13px] text-[#A3B565]">{link.handle}</span>
               </div>
             </div>
             <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-[-4px] text-black">
@@ -42,6 +69,8 @@ export default function Connect({ dark, handleCopyEmail }) {
           </motion.a>
         );
       })}
-    </div>
+
+      <PhotoCollage />
+    </motion.div>
   );
 }
