@@ -13,11 +13,11 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6, delay: 0.4 }}
-      className="flex flex-col gap-[12px] pt-2 text-[12px] text-subtle md:flex-row md:items-center md:justify-between"
+      className="flex items-center justify-between gap-[10px] whitespace-nowrap pt-2 text-[11px] text-subtle"
     >
       <span>© {new Date().getFullYear()} Mahesh Dongare</span>
 
-      <nav aria-label="Footer links" className="flex flex-wrap items-center gap-x-[16px] gap-y-[8px] md:justify-end">
+      <nav aria-label="Footer links" className="flex flex-nowrap items-center gap-[10px]">
         {FOOTER_LINKS.map((link) => {
           const isEmail = link.href.startsWith('mailto:');
 
@@ -27,7 +27,7 @@ export default function Footer() {
               href={link.href}
               target={isEmail ? undefined : '_blank'}
               rel={isEmail ? undefined : 'noopener noreferrer'}
-              className="group inline-flex items-center gap-[5px] whitespace-nowrap transition-colors duration-300 hover:text-[#A3B565]"
+              className="group inline-flex items-center gap-[4px] whitespace-nowrap transition-colors duration-300 hover:text-[#A3B565]"
             >
               <span aria-hidden="true" className="h-[5px] w-[5px] shrink-0 rounded-full bg-[#A3B565]" />
               <span>{link.label}</span>
