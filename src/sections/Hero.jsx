@@ -83,7 +83,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -10, filter: 'blur(5px)' }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className="font-serif-accent inline-block text-black/80 dark:text-white/85"
+                className="font-serif-accent inline-block text-[#A3B565]"
               >
                 {ROTATING[wordIdx]}
               </motion.span>
