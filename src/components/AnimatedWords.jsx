@@ -1,30 +1,41 @@
+import { Fragment } from 'react';
 import { motion } from 'framer-motion';
 import { wordReveal, wordContainer } from '../animations';
 
 export default function AnimatedWords({ text, className, gradient = false }) {
   const words = text.split(' ');
+  const tokens = [];
+
+  for (let i = 0; i < words.length; i += 1) {
+    const isDataScience = words[i] === 'Data' && words[i + 1]?.toLowerCase().startsWith('science');
+
+    if (isDataScience) {
+      tokens.push({ text: `${words[i]} ${words[i + 1]}`, dataScience: true });
+      i += 1;
+    } else {
+      tokens.push({ text: words[i], dataScience: false });
+    }
+  }
+
   return (
     <motion.span variants={wordContainer} className={className}>
-      {words.map((word, i) => {
-        const isDataScience = word === 'Data' && words[i + 1]?.toLowerCase().startsWith('science');
-        if (isDataScience) {
-          return (
-            <motion.span key={i} variants={wordReveal} className="inline-block mr-[0.28em]">
-              <span className="px-1.5 py-[2px] rounded-[6px] bg-gray-200 inline-block">
-                {word} {words[i + 1]}
+      {tokens.map((token, i) => (
+        <Fragment key={`${token.text}-${i}`}>
+          {i > 0 ? ' ' : null}
+          <motion.span
+            variants={wordReveal}
+            className={`inline-block ${gradient ? 'animated-gradient' : ''}`}
+          >
+            {token.dataScience ? (
+              <span className="inline-block rounded-[6px] bg-gray-200 px-1.5 py-[2px]">
+                {token.text}
               </span>
-            </motion.span>
-          );
-        }
-        if (word.toLowerCase().startsWith('science,')) {
-          return null;
-        }
-        return (
-          <motion.span key={i} variants={wordReveal} className={`inline-block mr-[0.28em] ${gradient ? 'animated-gradient' : ''}`}>
-            {word}
+            ) : (
+              token.text
+            )}
           </motion.span>
-        );
-      })}
+        </Fragment>
+      ))}
     </motion.span>
   );
 }
