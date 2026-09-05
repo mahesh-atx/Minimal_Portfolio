@@ -22,6 +22,16 @@ export default function Connect({ dark, handleCopyEmail }) {
         <RevealHeading>Connect</RevealHeading>
       </motion.h3>
 
+      <motion.a
+        variants={fadeSlideUp}
+        href="/resume.pdf"
+        download="Mahesh-Dongare-Resume.pdf"
+        className="group inline-flex w-fit self-end items-center gap-[6px] px-0 py-0 text-[12px] font-medium text-[#A3B565] transition-colors duration-300 hover:text-[#8da34f] hover:underline hover:underline-offset-4"
+      >
+        Download résumé
+        <ArrowIcon className="h-[13px] w-[13px] transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[-2px]" />
+      </motion.a>
+
       {CONNECT_LINKS.map((link, idx) => {
         const Icon = link.icon;
         return (
@@ -57,16 +67,6 @@ export default function Connect({ dark, handleCopyEmail }) {
           </motion.a>
         );
       })}
-
-      <motion.a
-        variants={fadeSlideUp}
-        href="/resume.pdf"
-        download="Mahesh-Dongare-Resume.pdf"
-        className="group inline-flex w-fit self-end items-center gap-[6px] px-0 py-0 text-[12px] font-medium text-[#A3B565] transition-colors duration-300 hover:text-[#8da34f] hover:underline hover:underline-offset-4"
-      >
-        Download résumé
-        <ArrowIcon className="h-[13px] w-[13px] transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[-2px]" />
-      </motion.a>
 
       <PhotoCollage />
     </motion.div>

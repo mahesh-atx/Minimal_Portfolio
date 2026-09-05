@@ -39,13 +39,6 @@ export const ABOUT = {
   ]
 };
 
-export const CURRENTLY_EXPLORING = [
-  'LLM applications',
-  'Model deployment',
-  'Automation',
-  'Data visualization',
-];
-
 export const EXPERIENCE = [
   {
     id: 1,
