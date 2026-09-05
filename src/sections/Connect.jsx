@@ -3,6 +3,7 @@ import { CONNECT_LINKS } from '../data';
 import { fadeSlideUp, staggerContainer } from '../animations';
 import Magnetic from '../components/Magnetic';
 import ArrowIcon from '../components/ArrowIcon';
+import RevealHeading from '../components/RevealHeading';
 
 export default function Connect({ dark, handleCopyEmail }) {
   return (
@@ -13,6 +14,13 @@ export default function Connect({ dark, handleCopyEmail }) {
       variants={staggerContainer}
       className="flex flex-col gap-[14px]"
     >
+      <motion.h3
+        variants={fadeSlideUp}
+        className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle"
+      >
+        <RevealHeading>Connect</RevealHeading>
+      </motion.h3>
+
       {CONNECT_LINKS.map((link, idx) => {
         const Icon = link.icon;
         return (
