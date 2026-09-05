@@ -4,6 +4,7 @@ import { fadeSlideUp, staggerContainer } from '../animations';
 import Magnetic from '../components/Magnetic';
 import ArrowIcon from '../components/ArrowIcon';
 import RevealHeading from '../components/RevealHeading';
+import PhotoCollage from '../components/PhotoCollage';
 
 export default function Connect({ dark, handleCopyEmail }) {
   return (
@@ -56,6 +57,8 @@ export default function Connect({ dark, handleCopyEmail }) {
           </motion.a>
         );
       })}
+
+      <PhotoCollage />
     </motion.div>
   );
 }
