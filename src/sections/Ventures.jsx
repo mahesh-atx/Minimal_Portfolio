@@ -46,13 +46,13 @@ export default function Ventures() {
             </span>
           </div>
 
-          <div className="relative min-w-0 flex-1 overflow-hidden bg-[#101416] dark:bg-[#111111]">
+          <div className="relative min-w-0 flex-1 overflow-hidden bg-[#101416] p-[10px] dark:bg-[#111111] max-[809px]:p-[7px]">
             <img
               src={IMAGES[venture.id]}
               alt={`${venture.title} preview`}
               loading="lazy"
               decoding="async"
-              className={`h-full w-full origin-center transform-gpu object-cover scale-[1.08] transition-transform duration-500 group-hover:scale-[1.12] ${venture.id === 2 ? 'rotate-[-2deg]' : 'rotate-[2deg]'}`}
+              className={`h-full w-full origin-center transform-gpu rounded-[10px] object-cover scale-[1.08] transition-transform duration-500 group-hover:scale-[1.12] ${venture.id === 2 ? 'rotate-[-3deg]' : 'rotate-[3deg]'}`}
             />
           </div>
         </motion.a>
