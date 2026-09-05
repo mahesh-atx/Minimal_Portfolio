@@ -3,8 +3,8 @@ import { VENTURES } from '../data';
 import { fadeSlideUp, cardHover, staggerContainer } from '../animations';
 import ArrowIcon from '../components/ArrowIcon';
 import RevealHeading from '../components/RevealHeading';
-import copconnectImg from '../venture-copconnect.jpg';
-import sanvadImg from '../venture-sanvad.jpg';
+import copconnectImg from '../venture-copconnect.png';
+import sanvadImg from '../venture-sanvad.png';
 const IMAGES = {
   1: copconnectImg,
   2: sanvadImg,
