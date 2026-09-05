@@ -10,15 +10,23 @@ export default function Experience() {
         Experience
       </motion.h3>
 
-      <div className="flex flex-col gap-[16px]">
+      <div className="relative flex flex-col gap-[16px] pl-[28px]">
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute bottom-[14px] left-[8px] top-[14px] w-px bg-black/15 dark:bg-white/15"
+        />
         {EXPERIENCE.map((exp) => (
           <motion.div
             variants={fadeSlideUp}
             whileHover={{ y: -3 }}
             transition={{ type: 'spring', stiffness: 320, damping: 22 }}
             key={exp.id}
-            className="group/exp flex items-start gap-[16px] md:gap-[30px] p-[20px] md:p-[24px] rounded-[16px] border border-black/[0.05] dark:border-white/10 bg-white shadow-card transition-colors duration-300 hover:border-black/15 dark:hover:border-white/20"
+            className="group/exp relative flex items-start gap-[16px] md:gap-[30px] p-[20px] md:p-[24px] rounded-[16px] border border-black/[0.05] dark:border-white/10 bg-white shadow-card transition-colors duration-300 hover:border-black/15 dark:hover:border-white/20"
           >
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-[-25px] top-[28px] z-10 h-[10px] w-[10px] rounded-full border-[3px] border-[#f9f9f9] bg-black dark:border-[#111111] dark:bg-white"
+            />
             {/* Duration column */}
             <div className="hidden md:flex w-[140px] shrink-0 flex-col gap-[3px] pt-[2px]">
               <span className="text-[13.5px] font-medium text-black/70 dark:text-white/70 leading-[1.4]">{exp.period}</span>
