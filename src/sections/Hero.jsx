@@ -93,7 +93,7 @@ export default function Hero({ handleCopyEmail }) {
           </p>
           <motion.div
             variants={fadeSlideUp}
-            className="mt-[8px] w-full overflow-hidden border-y border-black/10 dark:border-white/10 py-[10px]"
+            className="mt-[8px] w-[700px] max-[809px]:w-[90vw] overflow-hidden border-y border-black/10 dark:border-white/10 py-[10px]"
           >
             <Marquee baseVelocity={2.5}>
               <span className="inline-block whitespace-nowrap pr-[64px] text-[13px] font-medium tracking-[0.02em] text-subtle">
