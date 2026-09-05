@@ -52,7 +52,7 @@ export default function Ventures() {
               alt={`${venture.title} preview`}
               loading="lazy"
               decoding="async"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
+              className={`h-full w-full origin-center transform-gpu object-cover scale-[1.08] transition-transform duration-500 group-hover:scale-[1.12] ${venture.id === 2 ? 'rotate-[-2deg]' : 'rotate-[2deg]'}`}
             />
           </div>
         </motion.a>
