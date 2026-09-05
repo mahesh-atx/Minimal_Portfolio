@@ -4,6 +4,7 @@ import { ABOUT } from '../data';
 import { fadeSlideUp, wordReveal, wordContainer, staggerContainer } from '../animations';
 import Marquee from '../components/Marquee';
 import RevealHeading from '../components/RevealHeading';
+import Process from './Process';
 
 function RevealText({ text, className }) {
   return (
@@ -60,6 +61,8 @@ export default function About() {
           ))}
         </Marquee>
       </motion.div>
+
+      <Process />
 
       {/* Education — spaced cards with arrow reveal */}
       <div className="flex flex-col gap-[20px]">

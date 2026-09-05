@@ -39,6 +39,34 @@ export const ABOUT = {
   ]
 };
 
+export const WORK_PROCESS = [
+  {
+    id: 1,
+    title: 'Discover',
+    description: 'Understand the problem, users, data, and desired outcome.'
+  },
+  {
+    id: 2,
+    title: 'Plan',
+    description: 'Define the approach, technical direction, and success metrics.'
+  },
+  {
+    id: 3,
+    title: 'Build',
+    description: 'Develop the solution through focused, iterative implementation.'
+  },
+  {
+    id: 4,
+    title: 'Test',
+    description: 'Validate reliability, performance, usability, and edge cases.'
+  },
+  {
+    id: 5,
+    title: 'Improve',
+    description: 'Learn from feedback, refine the solution, and keep shipping.'
+  }
+];
+
 export const EXPERIENCE = [
   {
     id: 1,
