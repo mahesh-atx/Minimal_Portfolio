@@ -35,11 +35,12 @@ export const tabPanel = {
 };
 
 export const wordReveal = {
-  hidden: { opacity: 0, y: 12 },
+  hidden: { opacity: 0, y: 12, filter: 'blur(5px)' },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.32, ease: [0.16, 1, 0.3, 1] }
+    filter: 'blur(0px)',
+    transition: { duration: 0.38, ease: [0.16, 1, 0.3, 1] }
   }
 };
 
