@@ -33,7 +33,7 @@ export default function Connect({ dark, handleCopyEmail }) {
               </Magnetic>
               <div className="flex flex-col">
                 <span className="font-medium text-[16px] text-black">{link.name}</span>
-                <span className="text-[13px] text-subtle">{link.handle}</span>
+                <span className="text-[13px] text-[#A3B565]">{link.handle}</span>
               </div>
             </div>
             <span className="opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-[-4px] text-black">
