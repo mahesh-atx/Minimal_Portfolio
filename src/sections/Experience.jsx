@@ -45,13 +45,15 @@ export default function Experience() {
               className="pointer-events-none absolute left-[-26px] top-[27px] z-10 h-[12px] w-[12px] rounded-full bg-[#A3B565]"
             />
             {/* Duration column */}
-            <div className="hidden md:flex w-[140px] shrink-0 flex-col gap-[3px] pt-[2px]">
+            <div className="hidden md:flex w-[140px] shrink-0 flex-col gap-[4px] pt-[2px]">
+              <span className="text-[11px] font-medium tracking-[0.12em] text-[#A3B565]">{String(exp.id).padStart(2, '0')}</span>
               <span className="text-[13.5px] font-medium text-black/70 dark:text-white/70 leading-[1.4]">{exp.period}</span>
               <span className="text-[12.5px] text-black/40 dark:text-white/40">{exp.span}</span>
             </div>
 
             {/* Body */}
             <div className="flex-1 min-w-0">
+              <span className="mb-[8px] block text-[11px] font-medium tracking-[0.12em] text-[#A3B565] md:hidden">{String(exp.id).padStart(2, '0')}</span>
               <div className="flex items-start justify-between gap-[12px]">
                 <div className="min-w-0">
                   <h4 className="text-[16.5px] font-medium leading-[1.4] text-black">
