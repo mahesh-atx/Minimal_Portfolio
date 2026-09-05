@@ -19,7 +19,7 @@ export default function Connect({ dark, handleCopyEmail }) {
             target={link.link.startsWith('mailto:') ? undefined : '_blank'}
             rel={link.link.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
             onClick={link.link.startsWith('mailto:') ? (e) => handleCopyEmail(e, link.link.replace('mailto:', '')) : undefined}
-            className="group flex items-center justify-between gap-4 px-4 py-4 rounded-[14px] bg-[#F1642E] shadow-card border border-black/[0.12] dark:border-black/20 hover:border-black/30 dark:hover:border-black/35 transition-colors"
+            className="group flex items-center justify-between gap-4 px-4 py-4 rounded-[14px] bg-white shadow-card border border-black/[0.04] dark:border-white/10 hover:border-black/10 dark:hover:border-white/20 transition-colors"
           >
             <div className="flex items-center gap-4">
               <Magnetic strength={0.45} className="w-fit">
