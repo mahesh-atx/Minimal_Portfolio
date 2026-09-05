@@ -25,7 +25,7 @@ export default function Ventures() {
           href={venture.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex h-[190px] max-[809px]:h-[158px] w-full items-stretch overflow-hidden border border-[#d8eaf0] bg-[#eaf7fb] transition-colors hover:border-[#a9d4df] dark:border-white/10 dark:bg-[#1b2930] dark:hover:border-white/20"
+          className="group flex h-[190px] max-[809px]:h-[158px] w-full items-stretch overflow-hidden border border-black/10 bg-[#F1642E] transition-colors hover:border-black/25 dark:border-black/20 dark:hover:border-black/35"
         >
           <div className="flex w-[42%] min-w-0 shrink-0 flex-col justify-between p-[20px] max-[809px]:w-[45%] max-[809px]:p-[14px]">
             <div className="min-w-0">
