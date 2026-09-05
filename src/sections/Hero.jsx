@@ -91,15 +91,14 @@ export default function Hero() {
           </p>
           <motion.div
             variants={fadeSlideUp}
-            className="mt-[8px] w-[700px] max-[809px]:w-[90vw] overflow-hidden border-y border-black/10 dark:border-white/10 py-[10px]"
+            className="mt-[8px] w-[700px] max-[809px]:w-[90vw] overflow-hidden border-y border-[#eeeeee] dark:border-white/10 dark:bg-white/[0.04] py-[14px]"
           >
-            <Marquee baseVelocity={2.5}>
-              <span className="flex shrink-0 items-center whitespace-nowrap text-[13px] font-medium tracking-[0.02em] text-subtle">
-                Mahesh Dongare _ Data Science AI ML
-                <span
-                  aria-hidden="true"
-                  className="mx-[32px] h-[5px] w-[5px] shrink-0 rounded-full bg-[#A3B565]"
-                />
+            <Marquee baseVelocity={3}>
+              <span className="flex items-center whitespace-nowrap">
+                <span className="text-[14px] font-medium text-subtle px-[22px]">
+                  Mahesh Dongare _ Data Science AI ML
+                </span>
+                <span className="w-[5px] h-[5px] rounded-full bg-[#A3B565]" aria-hidden="true" />
               </span>
             </Marquee>
           </motion.div>
