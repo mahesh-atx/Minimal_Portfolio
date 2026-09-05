@@ -40,8 +40,8 @@ export default function Ventures() {
               </p>
             </div>
 
-            <span className="inline-flex w-fit items-center gap-[5px] text-[10px] font-medium uppercase tracking-[0.08em] text-black dark:!text-white">
-              {venture.cta}
+            <span className="inline-flex w-fit items-center gap-[5px] text-[10px] font-medium uppercase tracking-[0.08em] text-[#A3B565] transition-colors duration-300 group-hover:text-[#8da34f]">
+              Visit
               <ArrowIcon className="h-[10px] w-[10px] transition-transform duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[-2px]" />
             </span>
           </div>
