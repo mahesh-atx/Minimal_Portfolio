@@ -29,7 +29,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
         <span className="order-2 max-[809px]:hidden w-px h-[16px] bg-black/10 dark:bg-white/15" aria-hidden="true" />
 
         {/* Tabs — centered in the same strip */}
-        <div role="tablist" className="order-3 max-[809px]:order-2 flex-1 min-w-0 flex items-center gap-[4px] max-[809px]:gap-[2px] overflow-x-auto scrollbar-hide">
+        <div role="tablist" className="order-3 max-[809px]:order-2 flex-1 min-w-0 flex items-center justify-center gap-[4px] max-[809px]:gap-[2px] overflow-x-auto scrollbar-hide">
           {TABS.map((tab) => (
             <button
               key={tab}
