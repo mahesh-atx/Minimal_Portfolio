@@ -5,13 +5,13 @@ import { getTabId } from '../utils';
 
 export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark }) {
   return (
-    <div className="fixed top-0 left-0 right-0 z-[55] flex justify-center px-[20px] pt-[20px] max-[809px]:pt-[15px] pointer-events-none">
+    <div className="fixed top-0 left-0 right-0 z-[55] flex justify-center pt-[20px] max-[809px]:pt-[15px] pointer-events-none">
       <motion.nav
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         aria-label="Portfolio sections"
-        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-wrap items-center justify-between gap-x-[6px] gap-y-[6px] p-[5px] rounded-full max-[809px]:rounded-[26px] bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
+        className="pointer-events-auto w-[700px] max-[809px]:w-[90%] flex flex-wrap items-center justify-between gap-x-[6px] gap-y-[6px] p-[5px] rounded-full max-[809px]:rounded-[26px] bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
       >
         {/* Logo — inside the strip, left */}
         <motion.button
