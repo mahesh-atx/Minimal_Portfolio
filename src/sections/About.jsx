@@ -48,7 +48,7 @@ export default function About() {
               <span className="text-[14px] font-medium text-subtle px-[22px]">
                 {item}
               </span>
-              <span className="w-[4px] h-[4px] rounded-full bg-black/20 dark:bg-white/25" aria-hidden="true" />
+              <span className="w-[4px] h-[4px] rounded-full bg-[#A3B565]" aria-hidden="true" />
             </span>
           ))}
         </Marquee>
