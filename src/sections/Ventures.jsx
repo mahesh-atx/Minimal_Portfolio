@@ -9,7 +9,7 @@ const IMAGES = {
   1: copconnectImg,
   2: sanvadImg,
   3: '/project-insightflow.jpg',
-  4: '/project-safesignal.jpg',
+  4: '/project-safesignal.png',
   5: '/project-querypilot.jpg',
 };
 
