@@ -23,7 +23,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
           aria-label="Back to Ventures"
           className="order-1 shrink-0 h-[35px] px-[10px] flex items-center text-[16px] font-bold leading-none tracking-[-0.01em] text-black dark:!text-white"
         >
-          Md.
+          Md<span className="text-[#A3B565]">.</span>
         </motion.button>
 
         <span className="order-2 max-[809px]:hidden w-px h-[16px] bg-black/10 dark:bg-white/15" aria-hidden="true" />
