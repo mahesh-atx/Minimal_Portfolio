@@ -18,7 +18,7 @@ export default function PhotoCollage() {
           key={photo.src}
           whileHover={{ y: -6, rotate: 0, scale: 1.02 }}
           transition={{ type: 'spring', stiffness: 260, damping: 22 }}
-          className={`absolute top-[34px] w-[48%] bg-white p-[10px] pb-[42px] shadow-[0_14px_26px_rgba(0,0,0,0.18)] ${index === 0 ? 'left-[5%]' : 'right-[5%] top-0'} ${photo.rotation} max-[809px]:p-[7px] max-[809px]:pb-[31px]`}
+          className={`absolute w-[48%] bg-white p-[10px] pb-[42px] shadow-[0_14px_26px_rgba(0,0,0,0.18)] ${index === 0 ? 'left-[5%] top-[34px] z-10' : 'right-[5%] top-0 z-20'} ${photo.rotation} max-[809px]:p-[7px] max-[809px]:pb-[31px]`}
         >
           <img
             src={photo.src}
