@@ -93,21 +93,13 @@ export default function Hero({ handleCopyEmail }) {
           </p>
           <motion.div
             variants={fadeSlideUp}
-            className="relative isolate mt-[8px] w-full overflow-hidden rounded-[18px] border border-black/10 bg-black/[0.02] py-[10px] dark:border-white/10 dark:bg-white/[0.04]"
+            className="mt-[8px] w-full overflow-hidden border-y border-black/10 dark:border-white/10 py-[10px]"
           >
             <Marquee baseVelocity={2.5}>
               <span className="inline-block whitespace-nowrap pr-[64px] text-[13px] font-medium tracking-[0.02em] text-subtle">
                 Mahesh Dongare _ Data Science AI ML
               </span>
             </Marquee>
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-y-0 left-0 z-10 w-[58px] rounded-l-[18px] bg-gradient-to-r from-[#f9f9f9] via-[#f9f9f9]/85 to-transparent backdrop-blur-[6px] dark:from-[#111111] dark:via-[#111111]/85"
-            />
-            <span
-              aria-hidden="true"
-              className="pointer-events-none absolute inset-y-0 right-0 z-10 w-[58px] rounded-r-[18px] bg-gradient-to-l from-[#f9f9f9] via-[#f9f9f9]/85 to-transparent backdrop-blur-[6px] dark:from-[#111111] dark:via-[#111111]/85"
-            />
           </motion.div>
         </motion.div>
       </motion.div>
