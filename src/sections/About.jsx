@@ -48,7 +48,7 @@ export default function About() {
               <span className="text-[14px] font-medium text-subtle px-[22px]">
                 {item}
               </span>
-              <span className="w-[7px] h-[7px] rounded-full border border-[#000000] bg-[#A3B565]" aria-hidden="true" />
+              <span className="w-[7px] h-[7px] rounded-full bg-[#A3B565]" aria-hidden="true" />
             </span>
           ))}
         </Marquee>
@@ -72,7 +72,7 @@ export default function About() {
             >
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute left-[-27px] top-[26px] z-10 h-[14px] w-[14px] rounded-full border-[3px] border-[#f9f9f9] bg-[#A3B565] dark:border-[#111111] dark:bg-[#A3B565]"
+                className="pointer-events-none absolute left-[-27px] top-[26px] z-10 h-[14px] w-[14px] rounded-full bg-[#A3B565]"
               />
               <div className="hidden md:block w-[140px] shrink-0 pt-[2px]">
                 <span className="text-[13.5px] font-medium text-black/70 dark:text-white/70 leading-[1.5]">{edu.duration}</span>

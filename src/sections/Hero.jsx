@@ -100,7 +100,7 @@ export default function Hero({ handleCopyEmail }) {
                 Mahesh Dongare _ Data Science AI ML
                 <span
                   aria-hidden="true"
-                  className="mx-[32px] h-[7px] w-[7px] shrink-0 rounded-full border border-[#000000] bg-[#A3B565]"
+                  className="mx-[32px] h-[7px] w-[7px] shrink-0 rounded-full bg-[#A3B565]"
                 />
               </span>
             </Marquee>
