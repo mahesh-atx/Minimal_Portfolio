@@ -46,7 +46,7 @@ export default function Ventures() {
             </span>
           </div>
 
-          <div className="relative min-w-0 flex-1 overflow-hidden bg-[#101416] p-[10px] dark:bg-[#111111] max-[809px]:p-[7px]">
+          <div className="relative min-w-0 flex-1 overflow-hidden p-[10px] max-[809px]:p-[7px]">
             <img
               src={IMAGES[venture.id]}
               alt={`${venture.title} preview`}
