@@ -25,7 +25,7 @@ export default function Experience() {
           >
             <span
               aria-hidden="true"
-              className="pointer-events-none absolute left-[-27px] top-[26px] z-10 h-[14px] w-[14px] rounded-full bg-[#A3B565]"
+              className="pointer-events-none absolute left-[-26px] top-[27px] z-10 h-[12px] w-[12px] rounded-full bg-[#A3B565]"
             />
             {/* Duration column */}
             <div className="hidden md:flex w-[140px] shrink-0 flex-col gap-[3px] pt-[2px]">
