@@ -58,6 +58,16 @@ export default function Connect({ dark, handleCopyEmail }) {
         );
       })}
 
+      <motion.a
+        variants={fadeSlideUp}
+        href="/resume.pdf"
+        download="Mahesh-Dongare-Resume.pdf"
+        className="group inline-flex w-fit items-center gap-[6px] rounded-full border border-[#A3B565] px-[13px] py-[7px] text-[12px] font-medium text-[#A3B565] transition-colors duration-300 hover:bg-[#A3B565] hover:text-[#111111]"
+      >
+        Download résumé
+        <ArrowIcon className="h-[13px] w-[13px] transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[-2px]" />
+      </motion.a>
+
       <PhotoCollage />
     </motion.div>
   );

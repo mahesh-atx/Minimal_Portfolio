@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { MapPin, ArrowUpRight } from 'lucide-react';
-import { ABOUT } from '../data';
+import { ABOUT, CURRENTLY_EXPLORING } from '../data';
 import { fadeSlideUp, wordReveal, wordContainer, staggerContainer } from '../animations';
 import Marquee from '../components/Marquee';
 import RevealHeading from '../components/RevealHeading';
@@ -59,6 +59,23 @@ export default function About() {
             </span>
           ))}
         </Marquee>
+      </motion.div>
+
+      <motion.div variants={fadeSlideUp} className="flex flex-col gap-[12px]">
+        <motion.h3
+          variants={fadeSlideUp}
+          className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle"
+        >
+          <RevealHeading>Currently exploring</RevealHeading>
+        </motion.h3>
+        <div className="flex flex-wrap items-center gap-x-[10px] gap-y-[8px] text-[14px] text-muted">
+          {CURRENTLY_EXPLORING.map((topic, index) => (
+            <span key={topic} className="inline-flex items-center gap-[10px]">
+              {index > 0 && <span aria-hidden="true" className="h-[5px] w-[5px] rounded-full bg-[#A3B565]" />}
+              {topic}
+            </span>
+          ))}
+        </div>
       </motion.div>
 
       {/* Education — spaced cards with arrow reveal */}
