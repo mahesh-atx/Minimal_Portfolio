@@ -96,8 +96,12 @@ export default function Hero({ handleCopyEmail }) {
             className="mt-[8px] w-[700px] max-[809px]:w-[90vw] overflow-hidden border-y border-black/10 dark:border-white/10 py-[10px]"
           >
             <Marquee baseVelocity={2.5}>
-              <span className="inline-block whitespace-nowrap pr-[64px] text-[13px] font-medium tracking-[0.02em] text-subtle">
+              <span className="flex shrink-0 items-center whitespace-nowrap text-[13px] font-medium tracking-[0.02em] text-subtle">
                 Mahesh Dongare _ Data Science AI ML
+                <span
+                  aria-hidden="true"
+                  className="mx-[32px] h-[4px] w-[4px] shrink-0 rounded-full bg-black/25 dark:bg-white/30"
+                />
               </span>
             </Marquee>
           </motion.div>
