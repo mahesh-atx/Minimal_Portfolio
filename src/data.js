@@ -78,6 +78,30 @@ export const VENTURES = [
     link: 'https://akolapoliceevisit-code.github.io/SP-e-Sanvad/',
     cta: 'Visit site',
     year: '2024'
+  },
+  {
+    id: 3,
+    title: 'InsightFlow',
+    description: 'Concept analytics dashboard for turning raw operational data into clear trends, forecasts, and decisions.',
+    link: 'https://github.com/mahesh-atx',
+    cta: 'Visit',
+    year: 'Concept'
+  },
+  {
+    id: 4,
+    title: 'SafeSignal',
+    description: 'Concept ML assistant for prioritizing cyber reports and surfacing suspicious patterns for analysts.',
+    link: 'https://github.com/mahesh-atx',
+    cta: 'Visit',
+    year: 'Concept'
+  },
+  {
+    id: 5,
+    title: 'QueryPilot',
+    description: 'Concept LLM tool for asking questions over structured datasets and generating explainable summaries.',
+    link: 'https://github.com/mahesh-atx',
+    cta: 'Visit',
+    year: 'Concept'
   }
 ];
 

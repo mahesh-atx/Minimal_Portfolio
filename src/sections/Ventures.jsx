@@ -5,8 +5,13 @@ import ArrowIcon from '../components/ArrowIcon';
 import RevealHeading from '../components/RevealHeading';
 import copconnectImg from '../venture-copconnect.jpg';
 import sanvadImg from '../venture-sanvad.jpg';
-
-const IMAGES = { 1: copconnectImg, 2: sanvadImg };
+const IMAGES = {
+  1: copconnectImg,
+  2: sanvadImg,
+  3: '/project-insightflow.jpg',
+  4: '/project-safesignal.jpg',
+  5: '/project-querypilot.jpg',
+};
 
 export default function Ventures() {
   return (
