@@ -26,13 +26,7 @@ export default function AnimatedWords({ text, className, gradient = false }) {
             variants={wordReveal}
             className={`inline-block ${gradient ? 'animated-gradient' : ''}`}
           >
-            {token.dataScience ? (
-              <span className="inline-block rounded-[6px] bg-gray-200 px-1.5 py-[2px]">
-                {token.text}
-              </span>
-            ) : (
-              token.text
-            )}
+            {token.text}
           </motion.span>
         </Fragment>
       ))}

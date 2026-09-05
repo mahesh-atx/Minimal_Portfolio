@@ -74,7 +74,7 @@ export default function Hero() {
             text="I'm a Data Science, AI & ML Enthusiast."
             className="text-[17px] max-[809px]:text-[15.5px] font-medium leading-[1.35] text-black/60 block"
           />
-          <p className="text-[16px] max-[809px]:text-[15px] font-medium leading-[1.4] text-black/60">
+          <p className="text-[17px] max-[809px]:text-[15.5px] font-medium leading-[1.35] text-black/60">
             <AnimatedWords text="I spend most of my time building" className="inline" />{' '}
             <AnimatePresence mode="wait">
               <motion.span
@@ -83,7 +83,7 @@ export default function Hero() {
                 animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
                 exit={{ opacity: 0, y: -10, filter: 'blur(5px)' }}
                 transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                className="font-serif-accent inline-block whitespace-nowrap text-[16px] max-[809px]:text-[15px] font-normal leading-[1.4] text-[#A3B565]"
+                className="font-serif-accent inline-block whitespace-nowrap text-[17px] max-[809px]:text-[15.5px] font-normal leading-[1.35] text-[#A3B565]"
               >
                 {ROTATING[wordIdx]}
               </motion.span>
