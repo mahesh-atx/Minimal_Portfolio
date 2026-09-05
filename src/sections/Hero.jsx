@@ -5,6 +5,7 @@ import { SOCIALS } from '../data';
 import { fadeSlideUp, staggerContainer } from '../animations';
 import AnimatedWords from '../components/AnimatedWords';
 import Magnetic from '../components/Magnetic';
+import Marquee from '../components/Marquee';
 
 const ROTATING = ['intelligent systems.', 'machine learning models.', 'data-driven products.', 'LLM-powered tools.'];
 
@@ -90,14 +91,15 @@ export default function Hero({ handleCopyEmail }) {
               </motion.span>
             </AnimatePresence>
           </p>
-          <motion.div variants={fadeSlideUp} className="mt-[8px]">
-            <span className="inline-flex items-center gap-[8px] px-[12px] py-[6px] rounded-full border border-black/10 dark:border-white/15 bg-white dark:!bg-white/[0.06] shadow-card">
-              <span className="relative flex h-[7px] w-[7px]">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-500 opacity-75" />
-                <span className="relative inline-flex h-[7px] w-[7px] rounded-full bg-emerald-500" />
+          <motion.div
+            variants={fadeSlideUp}
+            className="mt-[8px] w-full overflow-hidden border-y border-black/10 dark:border-white/10 py-[10px]"
+          >
+            <Marquee baseVelocity={2.5}>
+              <span className="whitespace-nowrap text-[13px] font-medium tracking-[0.02em] text-subtle">
+                Mahesh Dongare _ Data Science AI ML
               </span>
-              <span className="text-[12.5px] font-medium text-black/60 dark:text-[#b8b8b8]">Available for new opportunities</span>
-            </span>
+            </Marquee>
           </motion.div>
         </motion.div>
       </motion.div>
