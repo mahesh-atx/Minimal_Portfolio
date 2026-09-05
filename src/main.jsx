@@ -5,7 +5,7 @@ import './index.css';
 
 import { TABS } from './data';
 import { getTabId } from './utils';
-import { staggerContainer } from './animations';
+import { tabPanel } from './animations';
 
 import Hero from './sections/Hero';
 import Nav from './sections/Nav';
@@ -92,13 +92,13 @@ function App() {
           <Hero handleCopyEmail={handleCopyEmail} />
 
           {/* Tab Content */}
-          <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={activeTab}
               initial="hidden"
               animate="visible"
               exit="exit"
-              variants={staggerContainer}
+              variants={tabPanel}
               id={`panel-${getTabId(activeTab)}`}
               role="tabpanel"
               aria-labelledby={`tab-${getTabId(activeTab)}`}

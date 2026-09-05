@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { VENTURES } from '../data';
 import { fadeSlideUp, cardHover, staggerContainer } from '../animations';
 import ArrowIcon from '../components/ArrowIcon';
+import RevealHeading from '../components/RevealHeading';
 import copconnectImg from '../venture-copconnect.jpg';
 import sanvadImg from '../venture-sanvad.jpg';
 
@@ -20,7 +21,7 @@ export default function Ventures() {
         variants={fadeSlideUp}
         className="text-[10px] uppercase tracking-[0.16em] font-bold text-subtle"
       >
-        Featured projects
+        <RevealHeading>Featured projects</RevealHeading>
       </motion.p>
 
       {VENTURES.map((venture) => (
@@ -39,7 +40,7 @@ export default function Ventures() {
                 {venture.year}
               </p>
               <h3 className="mt-[14px] truncate text-[24px] font-medium leading-none tracking-[-0.03em] text-black max-[809px]:mt-[10px] max-[809px]:text-[18px]">
-                {venture.title}
+                <RevealHeading>{venture.title}</RevealHeading>
               </h3>
               <p className="mt-[14px] line-clamp-3 text-[13px] leading-[1.45] text-muted max-[809px]:mt-[10px] max-[809px]:text-[11.5px]">
                 {venture.description}

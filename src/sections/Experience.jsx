@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { EXPERIENCE } from '../data';
 import { fadeSlideUp, staggerContainer } from '../animations';
+import RevealHeading from '../components/RevealHeading';
 
 export default function Experience() {
   return (
@@ -13,7 +14,7 @@ export default function Experience() {
       className="flex flex-col gap-[20px]"
     >
       <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">
-        Experience
+        <RevealHeading>Experience</RevealHeading>
       </motion.h3>
 
       <motion.div
@@ -54,7 +55,7 @@ export default function Experience() {
               <div className="flex items-start justify-between gap-[12px]">
                 <div className="min-w-0">
                   <h4 className="text-[16.5px] font-medium leading-[1.4] text-black">
-                    {exp.role}
+                    <RevealHeading>{exp.role}</RevealHeading>
                   </h4>
                   <p className="text-[14px] mt-[4px] leading-[1.5] text-muted">
                     {exp.company} · {exp.location}

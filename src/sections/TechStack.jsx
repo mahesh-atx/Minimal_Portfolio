@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { TECH_STACK } from '../data';
 import { fadeSlideUp, staggerContainer } from '../animations';
 import ArrowIcon from '../components/ArrowIcon';
+import RevealHeading from '../components/RevealHeading';
 
 export default function TechStack({ dark }) {
   const grouped = TECH_STACK.reduce((acc, t) => {
@@ -19,7 +20,9 @@ export default function TechStack({ dark }) {
     >
       {Object.entries(grouped).map(([category, items]) => (
         <motion.div variants={fadeSlideUp} key={category} className="flex flex-col gap-3">
-          <h4 className="text-[12px] uppercase tracking-wider font-bold text-subtle">{category}</h4>
+          <h4 className="text-[12px] uppercase tracking-wider font-bold text-subtle">
+            <RevealHeading>{category}</RevealHeading>
+          </h4>
           <motion.div
             initial="hidden"
             whileInView="visible"

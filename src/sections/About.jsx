@@ -3,6 +3,7 @@ import { MapPin, ArrowUpRight } from 'lucide-react';
 import { ABOUT } from '../data';
 import { fadeSlideUp, wordReveal, wordContainer, staggerContainer } from '../animations';
 import Marquee from '../components/Marquee';
+import RevealHeading from '../components/RevealHeading';
 
 function RevealText({ text, className }) {
   return (
@@ -63,7 +64,7 @@ export default function About() {
       {/* Education — spaced cards with arrow reveal */}
       <div className="flex flex-col gap-[20px]">
         <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">
-          Education
+          <RevealHeading>Education</RevealHeading>
         </motion.h3>
         <motion.div
           initial="hidden"
@@ -95,7 +96,9 @@ export default function About() {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between gap-[12px]">
-                  <h4 className="text-[16px] font-medium leading-[1.45] text-black">{edu.degree}</h4>
+                  <h4 className="text-[16px] font-medium leading-[1.45] text-black">
+                    <RevealHeading>{edu.degree}</RevealHeading>
+                  </h4>
                   <ArrowUpRight
                     className="shrink-0 w-[16px] h-[16px] text-subtle opacity-0 translate-x-[-4px] translate-y-[4px] group-hover/edu:opacity-100 group-hover/edu:translate-x-0 group-hover/edu:translate-y-0 transition-all duration-300"
                     aria-hidden="true"
