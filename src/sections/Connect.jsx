@@ -62,7 +62,7 @@ export default function Connect({ dark, handleCopyEmail }) {
         variants={fadeSlideUp}
         href="/resume.pdf"
         download="Mahesh-Dongare-Resume.pdf"
-        className="group inline-flex w-fit items-center gap-[6px] rounded-full border border-[#A3B565] px-[13px] py-[7px] text-[12px] font-medium text-[#A3B565] transition-colors duration-300 hover:bg-[#A3B565] hover:text-[#111111]"
+        className="group inline-flex w-fit self-end items-center gap-[6px] px-0 py-0 text-[12px] font-medium text-[#A3B565] transition-colors duration-300 hover:text-[#8da34f] hover:underline hover:underline-offset-4"
       >
         Download résumé
         <ArrowIcon className="h-[13px] w-[13px] transition-transform duration-300 group-hover:translate-x-[2px] group-hover:translate-y-[-2px]" />

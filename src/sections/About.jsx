@@ -68,11 +68,11 @@ export default function About() {
         >
           <RevealHeading>Currently exploring</RevealHeading>
         </motion.h3>
-        <div className="flex flex-wrap items-center gap-x-[10px] gap-y-[8px] text-[14px] text-muted">
-          {CURRENTLY_EXPLORING.map((topic, index) => (
-            <span key={topic} className="inline-flex items-center gap-[10px]">
-              {index > 0 && <span aria-hidden="true" className="h-[5px] w-[5px] rounded-full bg-[#A3B565]" />}
-              {topic}
+        <div className="grid grid-cols-2 gap-x-[18px] gap-y-[10px] text-[14px] leading-[1.4] text-muted max-[480px]:grid-cols-1">
+          {CURRENTLY_EXPLORING.map((topic) => (
+            <span key={topic} className="inline-flex min-w-0 items-center gap-[9px]">
+              <span aria-hidden="true" className="h-[5px] w-[5px] shrink-0 rounded-full bg-[#A3B565]" />
+              <span className="truncate">{topic}</span>
             </span>
           ))}
         </div>
