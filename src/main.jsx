@@ -89,7 +89,7 @@ function App() {
         <div className="w-[700px] max-[809px]:w-[90%] pt-[170px] pb-[100px] max-[809px]:pt-[140px] max-[809px]:pb-[100px] flex flex-col gap-[80px] max-[809px]:gap-[60px]">
           <Nav activeTab={activeTab} setActiveTab={setActiveTab} onKeyDown={handleTabKeyDown} dark={dark} setDark={setDark} />
 
-          <Hero handleCopyEmail={handleCopyEmail} />
+          <Hero />
 
           {/* Tab Content */}
           <AnimatePresence mode="wait" initial={false}>

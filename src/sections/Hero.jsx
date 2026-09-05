@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import avatarImg from '../avatar.webp';
-import { SOCIALS } from '../data';
 import { fadeSlideUp, staggerContainer } from '../animations';
 import AnimatedWords from '../components/AnimatedWords';
-import Magnetic from '../components/Magnetic';
 import Marquee from '../components/Marquee';
 
 const ROTATING = ['intelligent systems.', 'machine learning models.', 'data-driven products.', 'LLM-powered tools.'];
 
-export default function Hero({ handleCopyEmail }) {
+export default function Hero() {
   const [wordIdx, setWordIdx] = useState(0);
 
   useEffect(() => {
@@ -108,30 +106,6 @@ export default function Hero({ handleCopyEmail }) {
         </motion.div>
       </motion.div>
 
-      {/* Socials + theme toggle */}
-      <motion.div variants={fadeSlideUp} className="flex items-center gap-[15px] mt-[10px] text-black">
-        {SOCIALS.map((s) => {
-          const Icon = s.icon;
-          return (
-            <Magnetic key={s.label} strength={0.4} className="inline-block">
-              <motion.a
-                variants={fadeSlideUp}
-                whileHover={{ y: -3, scale: 1.18, rotate: 4 }}
-                whileTap={{ scale: 0.88 }}
-                transition={{ type: 'spring', stiffness: 400, damping: 15 }}
-                href={s.link}
-                target={s.link.startsWith('mailto:') ? undefined : '_blank'}
-                rel={s.link.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
-                onClick={s.link.startsWith('mailto:') ? (e) => handleCopyEmail(e, s.link.replace('mailto:', '')) : undefined}
-                aria-label={s.label}
-                className="block text-black hover:opacity-70 transition-opacity"
-              >
-                <Icon className="w-5 h-5" />
-              </motion.a>
-            </Magnetic>
-          );
-        })}
-      </motion.div>
     </motion.header>
   );
 }
