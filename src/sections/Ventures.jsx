@@ -25,22 +25,22 @@ export default function Ventures() {
           href={venture.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="group flex h-[190px] max-[809px]:h-[158px] w-full items-stretch overflow-hidden border border-[#d8eaf0] bg-[#eaf7fb] transition-colors hover:border-[#a9d4df] dark:border-white/10 dark:bg-[#1b2930] dark:hover:border-white/20"
+          className="group flex h-[190px] max-[809px]:h-[158px] w-full items-stretch overflow-hidden rounded-[16px] border border-black/[0.05] bg-white shadow-card transition-colors hover:border-black/10 dark:border-white/10 dark:hover:border-white/20"
         >
           <div className="flex w-[42%] min-w-0 shrink-0 flex-col justify-between p-[20px] max-[809px]:w-[45%] max-[809px]:p-[14px]">
             <div className="min-w-0">
-              <p className="text-[10px] uppercase tracking-[0.13em] text-[#5f8794] dark:text-[#9fb8c1]">
+              <p className="text-[10px] uppercase tracking-[0.13em] text-subtle">
                 {venture.year}
               </p>
-              <h3 className="mt-[14px] truncate text-[24px] font-medium leading-none tracking-[-0.03em] text-[#12617c] max-[809px]:mt-[10px] max-[809px]:text-[18px] dark:text-[#82c9df]">
+              <h3 className="mt-[14px] truncate text-[24px] font-medium leading-none tracking-[-0.03em] text-black max-[809px]:mt-[10px] max-[809px]:text-[18px]">
                 {venture.title}
               </h3>
-              <p className="mt-[14px] line-clamp-3 text-[13px] leading-[1.45] text-[#4f7480] max-[809px]:mt-[10px] max-[809px]:text-[11.5px] dark:text-[#b2c6cc]">
+              <p className="mt-[14px] line-clamp-3 text-[13px] leading-[1.45] text-muted max-[809px]:mt-[10px] max-[809px]:text-[11.5px]">
                 {venture.description}
               </p>
             </div>
 
-            <span className="inline-flex w-fit items-center gap-[5px] text-[10px] font-medium uppercase tracking-[0.08em] text-[#12617c] dark:text-[#9bd7e8]">
+            <span className="inline-flex w-fit items-center gap-[5px] text-[10px] font-medium uppercase tracking-[0.08em] text-black dark:!text-white">
               {venture.cta}
               <ArrowIcon className="h-[10px] w-[10px] transition-transform duration-300 group-hover:translate-x-[3px] group-hover:translate-y-[-2px]" />
             </span>
