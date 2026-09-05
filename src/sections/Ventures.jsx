@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { VENTURES } from '../data';
-import { fadeSlideUp, cardHover } from '../animations';
+import { fadeSlideUp, cardHover, staggerContainer } from '../animations';
 import ArrowIcon from '../components/ArrowIcon';
 import copconnectImg from '../venture-copconnect.jpg';
 import sanvadImg from '../venture-sanvad.jpg';
@@ -9,7 +9,13 @@ const IMAGES = { 1: copconnectImg, 2: sanvadImg };
 
 export default function Ventures() {
   return (
-    <div className="flex flex-col gap-[18px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={staggerContainer}
+      className="flex flex-col gap-[18px]"
+    >
       <motion.p
         variants={fadeSlideUp}
         className="text-[10px] uppercase tracking-[0.16em] font-bold text-subtle"
@@ -57,6 +63,6 @@ export default function Ventures() {
           </div>
         </motion.a>
       ))}
-    </div>
+    </motion.div>
   );
 }

@@ -1,12 +1,18 @@
 import { motion } from 'framer-motion';
 import { CONNECT_LINKS } from '../data';
-import { fadeSlideUp } from '../animations';
+import { fadeSlideUp, staggerContainer } from '../animations';
 import Magnetic from '../components/Magnetic';
 import ArrowIcon from '../components/ArrowIcon';
 
 export default function Connect({ dark, handleCopyEmail }) {
   return (
-    <div className="flex flex-col gap-[14px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={staggerContainer}
+      className="flex flex-col gap-[14px]"
+    >
       {CONNECT_LINKS.map((link, idx) => {
         const Icon = link.icon;
         return (
@@ -42,6 +48,6 @@ export default function Connect({ dark, handleCopyEmail }) {
           </motion.a>
         );
       })}
-    </div>
+    </motion.div>
   );
 }

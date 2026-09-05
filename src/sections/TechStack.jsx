@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { TECH_STACK } from '../data';
-import { fadeSlideUp } from '../animations';
+import { fadeSlideUp, staggerContainer } from '../animations';
 import ArrowIcon from '../components/ArrowIcon';
 
 export default function TechStack({ dark }) {
@@ -10,11 +10,23 @@ export default function TechStack({ dark }) {
   }, {});
 
   return (
-    <div className="flex flex-col gap-[28px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={staggerContainer}
+      className="flex flex-col gap-[28px]"
+    >
       {Object.entries(grouped).map(([category, items]) => (
         <motion.div variants={fadeSlideUp} key={category} className="flex flex-col gap-3">
           <h4 className="text-[12px] uppercase tracking-wider font-bold text-subtle">{category}</h4>
-          <div className="grid grid-cols-3 max-[809px]:grid-cols-2 gap-4 max-[809px]:gap-[12px]">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={staggerContainer}
+            className="grid grid-cols-3 max-[809px]:grid-cols-2 gap-4 max-[809px]:gap-[12px]"
+          >
             {items.map((tech, idx) => (
               <motion.a
                 variants={fadeSlideUp}
@@ -40,9 +52,9 @@ export default function TechStack({ dark }) {
                 </span>
               </motion.a>
             ))}
-          </div>
+          </motion.div>
         </motion.div>
       ))}
-    </div>
+    </motion.div>
   );
 }

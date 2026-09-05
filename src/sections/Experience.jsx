@@ -1,19 +1,35 @@
 import { motion } from 'framer-motion';
 import { ArrowUpRight } from 'lucide-react';
 import { EXPERIENCE } from '../data';
-import { fadeSlideUp } from '../animations';
+import { fadeSlideUp, staggerContainer } from '../animations';
 
 export default function Experience() {
   return (
-    <div className="flex flex-col gap-[20px]">
+    <motion.div
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.15 }}
+      variants={staggerContainer}
+      className="flex flex-col gap-[20px]"
+    >
       <motion.h3 variants={fadeSlideUp} className="text-[12px] uppercase tracking-[0.16em] font-bold text-subtle">
         Experience
       </motion.h3>
 
-      <div className="relative flex flex-col gap-[16px] pl-[28px]">
-        <span
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        variants={staggerContainer}
+        className="relative flex flex-col gap-[16px] pl-[28px]"
+      >
+        <motion.span
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           aria-hidden="true"
-          className="pointer-events-none absolute bottom-[14px] left-[8px] top-[14px] w-px bg-black/15 dark:bg-white/15"
+          className="pointer-events-none absolute bottom-[14px] left-[8px] top-[14px] origin-top w-px bg-black/15 dark:bg-white/15"
         />
         {EXPERIENCE.map((exp) => (
           <motion.div
@@ -59,7 +75,7 @@ export default function Experience() {
             </div>
           </motion.div>
         ))}
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 }
