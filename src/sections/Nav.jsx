@@ -42,19 +42,12 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
               onClick={() => setActiveTab(tab)}
               onKeyDown={onKeyDown}
               className={`
-                relative flex-1 max-[809px]:flex-none h-[35px] flex items-center justify-center px-3 max-[809px]:px-[8px] rounded-full
+                relative flex-1 max-[809px]:flex-none h-[35px] flex items-center justify-center px-3 max-[809px]:px-[8px]
                 text-[14px] max-[809px]:text-[12px] font-medium transition-colors duration-300 text-center whitespace-nowrap
-                ${activeTab === tab ? 'text-white dark:!text-black' : 'text-subtle hover:text-black hover:bg-black/5 dark:hover:bg-white/10'}
+                ${activeTab === tab ? 'text-[#A3B565]' : 'text-subtle hover:text-[#A3B565]'}
               `}
             >
-              {activeTab === tab && (
-                <motion.span
-                  layoutId="tab-pill"
-                  className="absolute inset-0 bg-black dark:!bg-white rounded-full"
-                  transition={{ type: 'spring', stiffness: 420, damping: 32 }}
-                />
-              )}
-              <span className="relative z-10">
+              <span>
                 {tab === 'Tech Stack' ? (
                   <>
                     <span className="max-[809px]:hidden">Tech Stack</span>
