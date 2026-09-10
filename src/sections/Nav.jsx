@@ -11,7 +11,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         aria-label="Portfolio sections"
-        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-nowrap items-center justify-between gap-x-[6px] p-[5px] overflow-hidden rounded-full max-[809px]:rounded-[26px] bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
+        className="pointer-events-auto w-[700px] max-[809px]:w-full flex flex-nowrap items-center justify-between gap-x-[2px] p-[4px] overflow-hidden rounded-full max-[809px]:rounded-[26px] bg-black/[0.04] dark:bg-white/[0.06] border border-black/[0.06] dark:border-white/10"
       >
         {/* Logo — inside the strip, left */}
         <motion.button
@@ -29,7 +29,7 @@ export default function Nav({ activeTab, setActiveTab, onKeyDown, dark, setDark 
         <span className="order-2 max-[809px]:hidden w-px h-[16px] bg-black/10 dark:bg-white/15" aria-hidden="true" />
 
         {/* Tabs — centered in the same strip */}
-        <div role="tablist" className="order-3 max-[809px]:order-2 flex-1 min-w-0 flex items-center justify-center gap-[4px] max-[809px]:gap-[2px] overflow-x-auto scrollbar-hide">
+        <div role="tablist" className="order-3 max-[809px]:order-2 flex-1 min-w-0 flex items-center justify-center gap-[2px] max-[809px]:gap-[2px] overflow-x-auto scrollbar-hide">
           {TABS.map((tab) => (
             <button
               key={tab}

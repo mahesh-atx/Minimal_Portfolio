@@ -3,6 +3,16 @@ import { ArrowUpRight } from 'lucide-react';
 import { EXPERIENCE } from '../data';
 import { fadeSlideUp, staggerContainer } from '../animations';
 import RevealHeading from '../components/RevealHeading';
+import Marquee from '../components/Marquee';
+
+const MARQUEE_IMAGES = [
+  { src: '/marquee-1.jpg', alt: 'Outside work 1' },
+  { src: '/marquee-2.jpg', alt: 'Outside work 2' },
+  { src: '/marquee-3.jpg', alt: 'Outside work 3' },
+  { src: '/marquee-4.jpg', alt: 'Outside work 4' },
+  { src: '/marquee-5.jpg', alt: 'Outside work 5' },
+  { src: '/marquee-6.jpg', alt: 'Outside work 6' },
+];
 
 export default function Experience() {
   return (
@@ -78,6 +88,36 @@ export default function Experience() {
             </div>
           </motion.div>
         ))}
+      </motion.div>
+
+      {/* Polaroid-style image marquee — no container bg, each image like Connect PhotoCollage, slightly rotated */}
+      <motion.div
+        variants={fadeSlideUp}
+        className="overflow-hidden py-[14px] max-[809px]:py-[10px]"
+      >
+        <Marquee baseVelocity={1.2} className="py-[14px]">
+          {MARQUEE_IMAGES.map((img, idx) => {
+            const rotationDeg = [-3, 2.5, -2, 3.5, -1.5, 2][idx % 6];
+            return (
+              <motion.figure
+                key={idx}
+                initial={{ rotate: rotationDeg, y: 0, scale: 1 }}
+                animate={{ rotate: rotationDeg, y: 0, scale: 1 }}
+                whileHover={{ rotate: 0, y: -4, scale: 1.04 }}
+                transition={{ type: 'spring', stiffness: 300, damping: 18 }}
+                className="mx-[12px] shrink-0 bg-white p-[7px] pb-[18px] shadow-[0_10px_20px_rgba(0,0,0,0.16)] max-[809px]:mx-[8px] max-[809px]:p-[5px] max-[809px]:pb-[12px]"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-[112px] w-[112px] object-cover max-[809px]:h-[88px] max-[809px]:w-[88px]"
+                />
+              </motion.figure>
+            );
+          })}
+        </Marquee>
       </motion.div>
     </motion.div>
   );
