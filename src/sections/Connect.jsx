@@ -25,7 +25,7 @@ export default function Connect({ dark, handleCopyEmail }) {
 
         <motion.a
           variants={fadeSlideUp}
-          href="/resume.pdf"
+          href="/Resume.pdf"
           download="Mahesh-Dongare-Resume.pdf"
           className="group inline-flex shrink-0 items-center gap-[6px] px-0 py-0 text-[12px] font-medium text-[#A3B565] transition-colors duration-300 hover:text-[#8da34f] hover:underline hover:underline-offset-4"
         >
